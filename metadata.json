@@ -1,0 +1,6 @@
+{
+  "name": "Nordic Air — Durban Climate Control",
+  "description": "Premium air conditioning installation, repairs, and maintenance across Durban, Umhlanga, and KwaZulu-Natal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
