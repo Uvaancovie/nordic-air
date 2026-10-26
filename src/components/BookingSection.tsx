@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { QuoteRequestData } from '../types';
+import { generateWhatsAppQuoteUrl } from '../utils/whatsapp';
 
 interface BookingSectionProps {
   initialService?: string;
@@ -108,17 +109,38 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
 
               {/* Direct Contact Points (Text only) */}
               <div className="pt-8 space-y-4 border-t border-white/10 text-xs text-slate-300">
-                <a
-                  href="tel:0319403388"
-                  className="block p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
-                >
-                  <span className="block text-[10px] text-slate-400 uppercase tracking-wider">
-                    Emergency Repair Line (24/7)
-                  </span>
-                  <span className="font-bold text-base text-white font-mono mt-0.5 block">
-                    031 940 3388
-                  </span>
-                </a>
+                <div className="space-y-2">
+                  <a
+                    href="tel:0319403388"
+                    className="block p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                  >
+                    <span className="block text-[10px] text-slate-400 uppercase tracking-wider">
+                      Emergency Repair Line (24/7)
+                    </span>
+                    <span className="font-bold text-base text-white font-mono mt-0.5 block">
+                      031 940 3388
+                    </span>
+                  </a>
+
+                  <a
+                    href={generateWhatsAppQuoteUrl({
+                      serviceType: formData.serviceType,
+                      suburb: formData.suburb,
+                      details: formData.notes,
+                      isUrgent: formData.isUrgent,
+                    })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block p-3.5 rounded-2xl bg-[#0077D4]/20 border border-[#0077D4]/40 hover:bg-[#0077D4]/30 transition-colors"
+                  >
+                    <span className="block text-[10px] text-sky-300 uppercase tracking-wider font-semibold">
+                      Direct WhatsApp Dispatch
+                    </span>
+                    <span className="font-bold text-sm text-white mt-0.5 block">
+                      Chat With On-Call Tech
+                    </span>
+                  </a>
+                </div>
 
                 <div className="px-1 text-slate-300 space-y-1.5">
                   <div>
@@ -162,14 +184,30 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                     </div>
                   )}
 
-                  <div className="pt-4">
+                  <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3">
                     <button
                       type="button"
                       onClick={handleReset}
-                      className="px-5 py-2.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors cursor-pointer"
+                      className="px-5 py-2.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors cursor-pointer w-full sm:w-auto"
                     >
                       Book Another Visit
                     </button>
+
+                    <a
+                      href={generateWhatsAppQuoteUrl({
+                        name: formData.fullName,
+                        phone: formData.phone,
+                        serviceType: formData.serviceType,
+                        suburb: formData.suburb,
+                        details: `Reference #NA-confirmed. Notes: ${formData.notes || 'None'}`,
+                        isUrgent: formData.isUrgent,
+                      })}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-5 py-2.5 text-xs font-semibold text-white bg-[#0077D4] hover:bg-[#0062b0] rounded-xl transition-colors cursor-pointer w-full sm:w-auto text-center"
+                    >
+                      Follow Up on WhatsApp
+                    </a>
                   </div>
                 </div>
               ) : (
@@ -328,18 +366,37 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                     />
                   </div>
 
-                  {/* Submit Button */}
-                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <button
-                      type="submit"
-                      disabled={loading}
-                      className="w-full sm:w-auto px-6 py-3.5 text-sm font-semibold text-white bg-[#0077D4] hover:bg-[#0062b0] rounded-xl shadow-sm transition-all cursor-pointer disabled:opacity-50"
-                    >
-                      {loading ? 'Sending...' : 'Get Free Quote'}
-                    </button>
+                  {/* Multi-Channel Dispatch Actions */}
+                  <div className="pt-2 space-y-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                      <button
+                        type="submit"
+                        disabled={loading}
+                        className="w-full py-3.5 px-5 text-sm font-semibold text-white bg-[#0077D4] hover:bg-[#0062b0] rounded-xl shadow-sm transition-all cursor-pointer disabled:opacity-50 text-center"
+                      >
+                        {loading ? 'Sending...' : 'Send Online Request'}
+                      </button>
 
-                    <div className="text-xs text-slate-500">
-                      Free quote · Confidential · No obligations
+                      <a
+                        href={generateWhatsAppQuoteUrl({
+                          name: formData.fullName,
+                          phone: formData.phone,
+                          serviceType: formData.serviceType,
+                          suburb: formData.suburb,
+                          details: formData.notes,
+                          isUrgent: formData.isUrgent,
+                        })}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full py-3.5 px-5 text-sm font-semibold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition-all text-center inline-block"
+                      >
+                        Send via WhatsApp Now
+                      </a>
+                    </div>
+
+                    <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
+                      <span>Free written quotation · No obligations</span>
+                      <span>Durban team on standby</span>
                     </div>
                   </div>
 

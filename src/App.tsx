@@ -5,6 +5,7 @@ import { TrustMetrics } from './components/TrustMetrics';
 import { AboutSection } from './components/AboutSection';
 import { NavyFeatures } from './components/NavyFeatures';
 import { ServicesSection } from './components/ServicesSection';
+import { CaseStudies } from './components/CaseStudies';
 import { ServiceAreas } from './components/ServiceAreas';
 import { EnergyEstimator } from './components/EnergyEstimator';
 import { BrandsSection } from './components/BrandsSection';
@@ -45,6 +46,14 @@ export default function App() {
     scrollToBooking(details.service, undefined, details.notes);
   };
 
+  const handleSelectCaseStudy = (title: string, suburbFullName: string) => {
+    setSelectedService('Installation');
+    setSelectedSuburb(suburbFullName);
+    const noteText = `Interested in setup: ${title} (${suburbFullName})`;
+    setQuoteNotes(noteText);
+    scrollToBooking('Installation', suburbFullName, noteText);
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#1E293B] font-sans antialiased selection:bg-[#0077D4] selection:text-white">
       {/* Top Navigation */}
@@ -70,7 +79,10 @@ export default function App() {
         {/* 5. Services & Solutions Grid with Residential / Commercial Toggles */}
         <ServicesSection onBookService={(s) => scrollToBooking(s)} />
 
-        {/* 6. Durban Service Area Map & Interactive Suburb Selector */}
+        {/* 6. Real Durban Installation Case Studies & Proof */}
+        <CaseStudies onRequestSetup={handleSelectCaseStudy} />
+
+        {/* 7. Durban Service Area Map & Interactive Suburb Selector */}
         <ServiceAreas onSelectArea={handleAreaSelect} />
 
         {/* 7. Interactive Room Sizing & Inverter Energy Calculator */}

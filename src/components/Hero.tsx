@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { generateWhatsAppQuoteUrl } from '../utils/whatsapp';
 
 interface HeroProps {
   onOpenBooking: (serviceType?: string, notes?: string) => void;
@@ -232,13 +233,29 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
                   </div>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={handleUseSize}
-                  className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-white bg-[#0077D4] hover:bg-[#0062b0] flex items-center justify-center transition-all shadow-xs cursor-pointer"
-                >
-                  Book Free Assessment For This Size
-                </button>
+                <div className="space-y-2">
+                  <button
+                    type="button"
+                    onClick={handleUseSize}
+                    className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-white bg-[#0077D4] hover:bg-[#0062b0] flex items-center justify-center transition-all shadow-xs cursor-pointer"
+                  >
+                    Book Free Assessment For This Size
+                  </button>
+
+                  <a
+                    href={generateWhatsAppQuoteUrl({
+                      serviceType: 'Installation',
+                      suburb: 'Umhlanga',
+                      details: `Quick Sizing Tool: ${roomSize === 'small' ? 'Small room' : roomSize === 'medium' ? 'Medium room' : 'Large room'} (${hasHeavySun ? 'Heavy Sun / Top Floor' : 'Standard Sun'}) - Recommended ${btu} Inverter.`,
+                      isUrgent: false,
+                    })}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-[#0F1E2E] bg-white hover:bg-slate-50 border border-slate-200 flex items-center justify-center transition-all shadow-xs text-center"
+                  >
+                    WhatsApp This Sizing to Technician
+                  </a>
+                </div>
 
                 <p className="text-[10px] text-slate-400 text-center mt-2.5">
                   Free site visit · Written quotation with no obligation

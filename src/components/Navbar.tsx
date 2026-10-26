@@ -30,6 +30,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             <a href="#services" className="hover:text-[#0077D4] transition-colors whitespace-nowrap">
               Services
             </a>
+            <a href="#case-studies" className="hover:text-[#0077D4] transition-colors whitespace-nowrap">
+              Case Studies
+            </a>
             <a href="#why-nordic" className="hover:text-[#0077D4] transition-colors whitespace-nowrap">
               Why Us
             </a>
@@ -95,6 +98,13 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
               className="py-1 hover:text-[#0077D4]"
             >
               Our Services
+            </a>
+            <a
+              href="#case-studies"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1 hover:text-[#0077D4]"
+            >
+              Case Studies
             </a>
             <a
               href="#why-nordic"
