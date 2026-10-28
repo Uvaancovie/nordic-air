@@ -124,7 +124,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
             <span>What We Do</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0F1E2E]">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0A1322]">
             Our Services
           </h2>
 
@@ -141,7 +141,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
               onClick={() => setActiveTab('residential')}
               className={`px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                 activeTab === 'residential'
-                  ? 'bg-[#0077D4] text-white shadow-sm'
+                  ? 'bg-[#1B5299] text-white shadow-sm'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -152,7 +152,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
               onClick={() => setActiveTab('commercial')}
               className={`px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                 activeTab === 'commercial'
-                  ? 'bg-[#0077D4] text-white shadow-sm'
+                  ? 'bg-[#1B5299] text-white shadow-sm'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -169,18 +169,18 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
               className="neo-card neo-card-hover rounded-3xl overflow-hidden flex flex-col bg-white border border-slate-200/90 shadow-sm"
             >
               {/* Clean Top Bar */}
-              <div className="p-6 pb-4 bg-gradient-to-br from-slate-50 via-sky-50/40 to-white border-b border-slate-100 flex items-center justify-between">
+              <div className="p-6 pb-4 bg-gradient-to-br from-slate-50 via-sky-50/30 to-white border-b border-slate-100 flex items-center justify-between">
                 <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
                   0{idx + 1}
                 </span>
 
                 {idx === 1 && (
-                  <span className="text-[10px] font-semibold tracking-wider uppercase bg-[#EF4444] text-white px-2.5 py-1 rounded-full shadow-xs">
+                  <span className="text-[10px] font-semibold tracking-wider uppercase bg-[#D32626] text-white px-2.5 py-1 rounded-full shadow-xs">
                     24/7 Callout
                   </span>
                 )}
                 {idx === 0 && (
-                  <span className="text-[10px] font-semibold tracking-wider uppercase bg-sky-100 text-[#0077D4] px-2.5 py-1 rounded-full">
+                  <span className="text-[10px] font-semibold tracking-wider uppercase bg-[#1B5299]/10 text-[#1B5299] px-2.5 py-1 rounded-full">
                     Most Popular
                   </span>
                 )}
@@ -194,7 +194,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
               {/* Card Content Body */}
               <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold tracking-tight text-[#0F1E2E]">
+                  <h3 className="text-xl font-bold tracking-tight text-[#0A1322]">
                     {service.title}
                   </h3>
 
@@ -206,7 +206,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
                   <div className="space-y-2.5">
                     {service.features.map((feat, fIdx) => (
                       <div key={fIdx} className="flex items-start gap-2 text-xs text-slate-700">
-                        <span className="text-[#0077D4] font-bold shrink-0">—</span>
+                        <span className="text-[#1B5299] font-bold shrink-0">—</span>
                         <span>{feat}</span>
                       </div>
                     ))}
@@ -218,7 +218,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
                   <button
                     type="button"
                     onClick={() => onBookService(service.title)}
-                    className="px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#0F1E2E] hover:bg-[#1E293B] shadow-xs transition-colors cursor-pointer text-center"
+                    className="px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#0A1322] hover:bg-[#162740] shadow-xs transition-colors cursor-pointer text-center"
                   >
                     Book Now
                   </button>

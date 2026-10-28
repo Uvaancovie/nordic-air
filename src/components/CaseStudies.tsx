@@ -104,16 +104,16 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="space-y-3 max-w-2xl">
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#0077D4] font-mono">
+              <span className="text-xs font-bold uppercase tracking-wider text-[#1B5299] font-mono">
                 PROVEN LOCAL WORK
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#EF4444]" />
-              <span className="text-xs font-medium text-slate-500">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#D32626]" />
+              <span className="text-xs font-semibold text-slate-500">
                 Greater Durban Installations
               </span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0F1E2E]">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0A1322]">
               Real Installations Across Durban
             </h2>
             
@@ -129,7 +129,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
               onClick={() => setFilter('all')}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                 filter === 'all'
-                  ? 'bg-[#0F1E2E] text-white shadow-xs'
+                  ? 'bg-[#1B5299] text-white shadow-xs'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
@@ -140,7 +140,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
               onClick={() => setFilter('coastal')}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                 filter === 'coastal'
-                  ? 'bg-[#0F1E2E] text-white shadow-xs'
+                  ? 'bg-[#1B5299] text-white shadow-xs'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
@@ -151,7 +151,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
               onClick={() => setFilter('residential')}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                 filter === 'residential'
-                  ? 'bg-[#0F1E2E] text-white shadow-xs'
+                  ? 'bg-[#1B5299] text-white shadow-xs'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
@@ -162,7 +162,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
               onClick={() => setFilter('commercial')}
               className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                 filter === 'commercial'
-                  ? 'bg-[#0F1E2E] text-white shadow-xs'
+                  ? 'bg-[#1B5299] text-white shadow-xs'
                   : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
               }`}
             >
@@ -190,7 +190,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
                   {/* Top Badge & Number */}
                   <div className="flex items-center justify-between pb-4 border-b border-slate-200/80 mb-5">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold text-[#0077D4] bg-sky-50 border border-sky-100 px-2.5 py-0.5 rounded-full">
+                      <span className="text-xs font-bold text-[#1B5299] bg-[#1B5299]/10 border border-[#1B5299]/20 px-2.5 py-0.5 rounded-full">
                         {study.suburb}
                       </span>
                       <span className="text-xs text-slate-500 font-medium">
@@ -203,7 +203,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
                   </div>
 
                   {/* Title & Subtitle */}
-                  <h3 className="text-xl font-bold text-[#0F1E2E] tracking-tight leading-snug mb-1">
+                  <h3 className="text-xl font-bold text-[#0A1322] tracking-tight leading-snug mb-1">
                     {study.title}
                   </h3>
                   <div className="text-xs text-slate-500 mb-6 font-medium">
@@ -222,7 +222,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
                     </div>
 
                     <div className="bg-white p-3.5 rounded-xl border border-slate-200/80">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#0077D4] block mb-1">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#1B5299] block mb-1">
                         Nordic Air Solution
                       </span>
                       <p className="leading-relaxed text-slate-700">
@@ -245,7 +245,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
                     <span className="text-xs font-medium text-slate-600">
                       {study.keyMetricLabel}
                     </span>
-                    <span className="text-xs font-bold font-mono text-[#0F1E2E]">
+                    <span className="text-xs font-bold font-mono text-[#0A1322]">
                       {study.keyMetric}
                     </span>
                   </div>
@@ -256,7 +256,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
                   <button
                     type="button"
                     onClick={() => onRequestSetup(study.title, study.suburbFullName)}
-                    className="w-full sm:flex-1 py-2.5 px-4 text-xs font-semibold text-white bg-[#0077D4] hover:bg-[#0062b0] rounded-xl transition-colors cursor-pointer text-center"
+                    className="w-full sm:flex-1 py-2.5 px-4 text-xs font-semibold text-white bg-[#1B5299] hover:bg-[#153e74] rounded-xl transition-colors cursor-pointer text-center"
                   >
                     Request Similar Setup
                   </button>
@@ -265,7 +265,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
                     href={whatsAppUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:flex-1 py-2.5 px-4 text-xs font-semibold text-[#0F1E2E] bg-white hover:bg-slate-100 border border-slate-200 rounded-xl transition-colors text-center inline-block"
+                    className="w-full sm:flex-1 py-2.5 px-4 text-xs font-semibold text-[#0A1322] bg-white hover:bg-slate-100 border border-slate-200 rounded-xl transition-colors text-center inline-block"
                   >
                     Discuss on WhatsApp
                   </a>
@@ -279,7 +279,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
         {/* Suburb Inclusivity Banner */}
         <div className="mt-12 p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#0F1E2E]">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#0A1322]">
               Covering All Greater Durban Suburbs
             </div>
             <p className="text-xs text-slate-600">
@@ -288,7 +288,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
           </div>
           <a
             href="#booking"
-            className="px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#0F1E2E] hover:bg-[#1A334E] transition-colors whitespace-nowrap cursor-pointer"
+            className="px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#0A1322] hover:bg-[#162740] transition-colors whitespace-nowrap cursor-pointer"
           >
             Check Availability In Your Area
           </a>

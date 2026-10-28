@@ -48,32 +48,32 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
   };
 
   return (
-    <section className="relative overflow-hidden pt-8 pb-16 md:pt-16 md:pb-20 bg-gradient-to-b from-[#E0F2FE] via-[#EDF7FC] to-[#F8FAFC]">
-      {/* Background glow */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-sky-200/30 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-72 h-72 bg-blue-100/30 rounded-full blur-2xl pointer-events-none" />
+    <section className="relative overflow-hidden pt-8 pb-16 md:pt-16 md:pb-20 bg-gradient-to-b from-[#EBF2F9] via-[#F2F6FA] to-[#F8FAFC]">
+      {/* Background glow matching Nordic brand palette */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#1B5299]/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-72 h-72 bg-[#D32626]/5 rounded-full blur-2xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* Left Column: Headline and Value */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-[#475569]">
-              <span className="text-[#0F1E2E] font-semibold">DURBAN AND SURROUNDS</span>
+            <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-600">
+              <span className="text-[#0A1322] font-bold">DURBAN AND SURROUNDS</span>
               <span aria-hidden="true" className="text-slate-300">/</span>
-              <span className="text-[#0077D4]">Licensed Technicians</span>
+              <span className="text-[#1B5299] font-semibold">Licensed Technicians</span>
               <span aria-hidden="true" className="text-slate-300">/</span>
-              <span className="inline-flex items-center gap-1.5 text-slate-500">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#EF4444]" />
+              <span className="inline-flex items-center gap-1.5 text-slate-600">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D32626]" />
                 Same-Day Emergency Service
               </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0F1E2E] leading-[1.1] text-balance">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0A1322] leading-[1.1] text-balance">
               Cool, quiet air conditioning for your home.
             </h1>
 
-            <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
               We install, repair, and service air conditioners across Durban, Umhlanga, and Ballito. Clear written quotations, tidy work with no mess, and fast help when your unit stops cooling.
             </p>
 
@@ -82,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
               <button
                 type="button"
                 onClick={() => onOpenBooking('Installation')}
-                className="px-6 py-3.5 text-sm font-semibold text-white bg-[#0077D4] hover:bg-[#0062b0] rounded-xl shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
+                className="px-6 py-3.5 text-sm font-semibold text-white bg-[#1B5299] hover:bg-[#153e74] rounded-xl shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
               >
                 Get a Free Quote
               </button>
@@ -90,28 +90,28 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
               <button
                 type="button"
                 onClick={onEmergencyClick}
-                className="px-6 py-3.5 text-sm font-semibold text-[#0F1E2E] bg-white/90 hover:bg-white border border-slate-200 hover:border-red-300 rounded-xl shadow-xs transition-all duration-200 group cursor-pointer flex items-center gap-2"
+                className="px-6 py-3.5 text-sm font-semibold text-[#0A1322] bg-white hover:bg-slate-50 border border-slate-200 hover:border-[#D32626] rounded-xl shadow-xs transition-all duration-200 group cursor-pointer flex items-center gap-2"
               >
-                <span className="w-2 h-2 rounded-full bg-[#EF4444]" />
+                <span className="w-2 h-2 rounded-full bg-[#D32626]" />
                 <span>Urgent Repair Help</span>
-                <span className="text-[11px] font-mono text-[#EF4444] font-medium bg-red-50 px-1.5 py-0.5 rounded ml-1">
+                <span className="text-[11px] font-mono text-[#D32626] font-semibold bg-red-50 border border-red-100 px-1.5 py-0.5 rounded ml-1">
                   24/7 Callout
                 </span>
               </button>
             </div>
 
             {/* Guarantees (No icons, no prices) */}
-            <div className="pt-4 border-t border-slate-200/60 grid grid-cols-3 gap-4 text-xs text-slate-600">
+            <div className="pt-4 border-t border-slate-200/80 grid grid-cols-3 gap-4 text-xs text-slate-600">
               <div>
-                <span className="font-semibold text-[#0F1E2E] block text-sm">Fixed Written Quotes</span>
+                <span className="font-bold text-[#0A1322] block text-sm">Fixed Written Quotes</span>
                 No hidden costs or extras
               </div>
               <div>
-                <span className="font-semibold text-[#0F1E2E] block text-sm">5-Year Warranty</span>
+                <span className="font-bold text-[#0A1322] block text-sm">5-Year Warranty</span>
                 On all new installations
               </div>
               <div>
-                <span className="font-semibold text-[#0F1E2E] block text-sm">Resists Sea Rust</span>
+                <span className="font-bold text-[#0A1322] block text-sm">Resists Sea Rust</span>
                 Built to handle Durban air
               </div>
             </div>
@@ -124,12 +124,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
                 
                 <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                   <div>
-                    <h3 className="text-sm font-bold text-[#0F1E2E] leading-tight">
+                    <h3 className="text-sm font-bold text-[#0A1322] leading-tight">
                       Quick AC Sizing Tool
                     </h3>
                     <p className="text-[11px] text-slate-500">Find the right unit for your room</p>
                   </div>
-                  <span className="text-[10px] font-mono font-semibold text-[#0077D4] bg-sky-50 px-2 py-0.5 rounded-full border border-sky-100">
+                  <span className="text-[10px] font-mono font-semibold text-[#1B5299] bg-[#1B5299]/10 px-2.5 py-0.5 rounded-full border border-[#1B5299]/20">
                     Room Sizer
                   </span>
                 </div>
@@ -146,7 +146,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
                         onClick={() => setRoomSize('small')}
                         className={`p-2.5 rounded-xl text-center border transition-all cursor-pointer ${
                           roomSize === 'small'
-                            ? 'bg-[#0077D4] text-white border-[#0077D4] shadow-xs'
+                            ? 'bg-[#1B5299] text-white border-[#1B5299] shadow-xs'
                             : 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
                         }`}
                       >
@@ -161,7 +161,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
                         onClick={() => setRoomSize('medium')}
                         className={`p-2.5 rounded-xl text-center border transition-all cursor-pointer ${
                           roomSize === 'medium'
-                            ? 'bg-[#0077D4] text-white border-[#0077D4] shadow-xs'
+                            ? 'bg-[#1B5299] text-white border-[#1B5299] shadow-xs'
                             : 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
                         }`}
                       >
@@ -176,7 +176,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
                         onClick={() => setRoomSize('large')}
                         className={`p-2.5 rounded-xl text-center border transition-all cursor-pointer ${
                           roomSize === 'large'
-                            ? 'bg-[#0077D4] text-white border-[#0077D4] shadow-xs'
+                            ? 'bg-[#1B5299] text-white border-[#1B5299] shadow-xs'
                             : 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
                         }`}
                       >
@@ -198,7 +198,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
                       onClick={() => setHasHeavySun(!hasHeavySun)}
                       className={`px-3 py-1 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
                         hasHeavySun
-                          ? 'bg-[#0077D4] text-white'
+                          ? 'bg-[#1B5299] text-white'
                           : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
                       }`}
                     >
@@ -207,7 +207,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
                   </div>
 
                   {/* Recommendation Box (NO prices, pure technical recommendation) */}
-                  <div className="p-4 rounded-2xl bg-gradient-to-br from-[#0F1E2E] to-[#1A334E] text-white shadow-sm">
+                  <div className="p-4 rounded-2xl bg-gradient-to-br from-[#0A1322] to-[#162740] text-white shadow-sm border border-white/10">
                     <div className="flex items-start justify-between">
                       <div>
                         <span className="text-[10px] font-mono uppercase tracking-wider text-sky-300">
@@ -237,7 +237,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
                   <button
                     type="button"
                     onClick={handleUseSize}
-                    className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-white bg-[#0077D4] hover:bg-[#0062b0] flex items-center justify-center transition-all shadow-xs cursor-pointer"
+                    className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-white bg-[#1B5299] hover:bg-[#153e74] flex items-center justify-center transition-all shadow-xs cursor-pointer"
                   >
                     Book Free Assessment For This Size
                   </button>
@@ -251,7 +251,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
                     })}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-[#0F1E2E] bg-white hover:bg-slate-50 border border-slate-200 flex items-center justify-center transition-all shadow-xs text-center"
+                    className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-[#0A1322] bg-white hover:bg-slate-50 border border-slate-200 flex items-center justify-center transition-all shadow-xs text-center"
                   >
                     WhatsApp This Sizing to Technician
                   </a>

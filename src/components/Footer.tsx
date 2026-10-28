@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#0F1E2E] text-white pt-16 pb-12 border-t border-slate-800">
+    <footer className="bg-[#0A1322] text-white pt-16 pb-12 border-t border-[#1B5299]/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Grid (No Icons, No Emojis, No Prices) */}
@@ -10,10 +10,15 @@ export const Footer: React.FC = () => {
           
           {/* Brand Column (Span 2) */}
           <div className="lg:col-span-2 space-y-4">
-            <div>
-              <span className="text-xl font-bold tracking-tight text-white">
-                NORDIC<span className="text-[#38BDF8] ml-1">AIR</span>
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#EF4444] ml-1.5 align-middle" />
+            <div className="flex items-center gap-3">
+              <img
+                src="/assets/aistudio/nordic-logo_9359fca8.jpeg"
+                alt="Nordic Air Logo"
+                className="w-10 h-10 rounded-full object-cover ring-2 ring-[#D32626]/40 shadow-sm"
+              />
+              <span className="text-xl font-bold tracking-tight text-white leading-none">
+                <span className="text-[#38BDF8]">NORDIC</span>
+                <span className="text-[#D32626] ml-1">AIR</span>
               </span>
             </div>
 
@@ -106,7 +111,7 @@ export const Footer: React.FC = () => {
                 href="tel:0319403388"
                 className="flex items-center gap-2 text-white font-mono font-semibold hover:text-sky-300 transition-colors"
               >
-                <span className="w-2 h-2 rounded-full bg-[#EF4444]" />
+                <span className="w-2 h-2 rounded-full bg-[#D32626]" />
                 <span>031 940 3388</span>
               </a>
 

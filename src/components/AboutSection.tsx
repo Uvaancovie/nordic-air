@@ -28,7 +28,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6">
                 
                 <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
-                  <span className="text-[10px] font-mono font-bold text-[#0077D4] block mb-1">
+                  <span className="text-[10px] font-mono font-bold text-[#1B5299] block mb-1">
                     01
                   </span>
                   <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wide">
@@ -40,7 +40,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                 </div>
 
                 <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
-                  <span className="text-[10px] font-mono font-bold text-[#0077D4] block mb-1">
+                  <span className="text-[10px] font-mono font-bold text-[#1B5299] block mb-1">
                     02
                   </span>
                   <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wide">
@@ -52,7 +52,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                 </div>
 
                 <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
-                  <span className="text-[10px] font-mono font-bold text-[#0077D4] block mb-1">
+                  <span className="text-[10px] font-mono font-bold text-[#1B5299] block mb-1">
                     03
                   </span>
                   <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wide">
@@ -64,7 +64,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                 </div>
 
                 <div className="p-4 rounded-2xl bg-white border border-slate-200/80 shadow-xs">
-                  <span className="text-[10px] font-mono font-bold text-[#0077D4] block mb-1">
+                  <span className="text-[10px] font-mono font-bold text-[#1B5299] block mb-1">
                     04
                   </span>
                   <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wide">
@@ -78,17 +78,17 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
               </div>
 
               {/* Bottom Metrics Bar */}
-              <div className="p-4 rounded-2xl bg-[#0F1E2E] text-white grid grid-cols-3 gap-2 text-center">
+              <div className="p-4 rounded-2xl bg-[#0A1322] text-white grid grid-cols-3 gap-2 text-center border border-white/10">
                 <div>
-                  <span className="block text-base font-bold font-mono text-sky-400">12+</span>
+                  <span className="block text-base font-bold font-mono text-[#38BDF8]">12+</span>
                   <span className="text-[10px] text-slate-300">Years in Durban</span>
                 </div>
                 <div className="border-x border-white/10">
-                  <span className="block text-base font-bold font-mono text-sky-400">5 Yrs</span>
+                  <span className="block text-base font-bold font-mono text-[#38BDF8]">5 Yrs</span>
                   <span className="text-[10px] text-slate-300">Unit Warranty</span>
                 </div>
                 <div>
-                  <span className="block text-base font-bold font-mono text-[#EF4444]">24/7</span>
+                  <span className="block text-base font-bold font-mono text-[#D32626]">24/7</span>
                   <span className="text-[10px] text-slate-300">Emergency Line</span>
                 </div>
               </div>
@@ -98,22 +98,22 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
 
           {/* Right Column: Straightforward English Text (No Icons) */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="text-xs font-semibold uppercase tracking-wider text-[#0077D4]">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#1B5299]">
               Simple, Reliable Air Conditioning
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0F1E2E] leading-tight text-balance">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0A1322] leading-tight text-balance">
               You need reliable air conditioning team.
             </h2>
 
-            <p className="text-base text-[#475569] leading-relaxed">
+            <p className="text-base text-slate-600 leading-relaxed">
               Durban is hot, humid, and close to the ocean. Cheap air conditioners rust fast in our salt air, leak water down walls, and drive up your electricity bill. We help you choose the right unit, install it neatly, and keep it cooling for years to come.
             </p>
 
             {/* Core Checkpoints without icons */}
             <div className="space-y-4 pt-1">
-              <div className="border-l-2 border-[#0077D4] pl-4">
-                <span className="font-semibold text-slate-900 text-sm block">
+              <div className="border-l-2 border-[#1B5299] pl-4">
+                <span className="font-bold text-slate-900 text-sm block">
                   Same-Day Emergency Service
                 </span>
                 <span className="text-xs text-slate-500">
@@ -121,8 +121,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                 </span>
               </div>
 
-              <div className="border-l-2 border-[#0077D4] pl-4">
-                <span className="font-semibold text-slate-900 text-sm block">
+              <div className="border-l-2 border-[#1B5299] pl-4">
+                <span className="font-bold text-slate-900 text-sm block">
                   Free Written Quotes
                 </span>
                 <span className="text-xs text-slate-500">
@@ -130,8 +130,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
                 </span>
               </div>
 
-              <div className="border-l-2 border-[#0077D4] pl-4">
-                <span className="font-semibold text-slate-900 text-sm block">
+              <div className="border-l-2 border-[#1B5299] pl-4">
+                <span className="font-bold text-slate-900 text-sm block">
                   Friendly, Certified Technicians
                 </span>
                 <span className="text-xs text-slate-500">
@@ -145,14 +145,14 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenBooking }) => 
               <button
                 type="button"
                 onClick={() => onOpenBooking('Repair')}
-                className="px-6 py-3 text-xs font-semibold text-white bg-[#0F1E2E] hover:bg-[#1E293B] rounded-xl shadow-xs transition-all cursor-pointer"
+                className="px-6 py-3 text-xs font-semibold text-white bg-[#0A1322] hover:bg-[#162740] rounded-xl shadow-xs transition-all cursor-pointer"
               >
                 Book a Free Site Visit
               </button>
 
               <a
                 href="#areas"
-                className="text-xs font-medium text-slate-600 hover:text-[#0077D4] transition-colors"
+                className="text-xs font-medium text-slate-600 hover:text-[#1B5299] transition-colors"
               >
                 See Durban Suburbs We Cover
               </a>

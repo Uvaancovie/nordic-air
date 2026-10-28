@@ -44,11 +44,11 @@ export const TrustMetrics: React.FC = () => {
               className={`flex flex-col items-center text-center ${idx > 0 ? 'pt-4 lg:pt-0 lg:pl-6' : ''}`}
             >
               <div className="flex items-center gap-1.5 mb-1.5">
-                <span className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0F1E2E] font-mono tabular-nums">
+                <span className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0A1322] font-mono tabular-nums">
                   {m.value}
                 </span>
                 {m.hasRedDot && (
-                  <span className="w-2 h-2 rounded-full bg-[#EF4444] animate-soft-pulse ml-0.5" />
+                  <span className="w-2 h-2 rounded-full bg-[#D32626] animate-soft-pulse ml-0.5" />
                 )}
               </div>
               <span className="text-xs font-semibold text-slate-800 tracking-tight">

@@ -16,10 +16,10 @@ export const BrandsSection: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           
           <div className="md:w-1/3 text-center md:text-left">
-            <span className="text-[11px] font-bold uppercase tracking-wider text-[#0077D4] block mb-1">
+            <span className="text-[11px] font-bold uppercase tracking-wider text-[#1B5299] block mb-1">
               Authorized Partner
             </span>
-            <h3 className="text-xl font-bold text-[#0F1E2E] tracking-tight">
+            <h3 className="text-xl font-bold text-[#0A1322] tracking-tight">
               Brands We Install & Fix
             </h3>
             <p className="text-xs text-slate-500 mt-1 max-w-sm">

@@ -17,7 +17,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="p-6 sm:p-8 bg-gradient-to-r from-[#0F1E2E] to-[#1E3A5F] text-white relative">
+        <div className="p-6 sm:p-8 bg-gradient-to-r from-[#0A1322] to-[#162740] text-white relative">
           <button
             type="button"
             onClick={onClose}
@@ -59,7 +59,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-700">
               {service.features.map((feat, idx) => (
                 <div key={idx} className="flex items-start gap-2">
-                  <span className="text-[#0077D4] font-bold shrink-0">—</span>
+                  <span className="text-[#1B5299] font-bold shrink-0">—</span>
                   <span>{feat}</span>
                 </div>
               ))}
@@ -68,8 +68,8 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
 
           {/* Practical Info */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="p-4 rounded-xl bg-blue-50/60 border border-blue-100">
-              <span className="text-[11px] font-semibold text-[#0077D4] uppercase tracking-wider block mb-1">
+            <div className="p-4 rounded-xl bg-[#1B5299]/10 border border-[#1B5299]/20">
+              <span className="text-[11px] font-semibold text-[#1B5299] uppercase tracking-wider block mb-1">
                 Best Suited For
               </span>
               <span className="text-xs text-slate-800 font-medium">
@@ -107,7 +107,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
                 onClose();
                 onBook(service.title);
               }}
-              className="w-1/2 sm:w-auto px-5 py-2.5 text-xs font-semibold text-white bg-[#0077D4] hover:bg-[#0062b0] rounded-xl shadow-xs transition-colors cursor-pointer text-center"
+              className="w-1/2 sm:w-auto px-5 py-2.5 text-xs font-semibold text-white bg-[#1B5299] hover:bg-[#153e74] rounded-xl shadow-xs transition-colors cursor-pointer text-center"
             >
               Book this Service
             </button>

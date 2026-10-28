@@ -55,7 +55,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#1E293B] font-sans antialiased selection:bg-[#0077D4] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#0A1322] font-sans antialiased selection:bg-[#1B5299] selection:text-white">
       {/* Top Navigation */}
       <Navbar onOpenBooking={(s) => scrollToBooking(s)} />
 

@@ -21,7 +21,7 @@ export const EnergyEstimator: React.FC<EnergyEstimatorProps> = ({ onPreFillBooki
             <span>Efficiency Guide</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0F1E2E]">
+          <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#0A1322]">
             How an Inverter Saves Electricity
           </h2>
 
@@ -40,7 +40,7 @@ export const EnergyEstimator: React.FC<EnergyEstimatorProps> = ({ onPreFillBooki
                 <label htmlFor={hoursInputId} className="text-xs font-bold text-slate-700">
                   Daily Usage:
                 </label>
-                <span className="text-sm font-bold font-mono text-[#0077D4] bg-sky-50 px-2.5 py-1 rounded-lg">
+                <span className="text-sm font-bold font-mono text-[#1B5299] bg-[#1B5299]/10 px-2.5 py-1 rounded-lg">
                   {hoursPerDay} hours / day
                 </span>
               </div>
@@ -52,7 +52,7 @@ export const EnergyEstimator: React.FC<EnergyEstimatorProps> = ({ onPreFillBooki
                 step="1"
                 value={hoursPerDay}
                 onChange={(e) => setHoursPerDay(Number(e.target.value))}
-                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#0077D4]"
+                className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#1B5299]"
               />
               <div className="flex justify-between text-[11px] text-slate-400 mt-1">
                 <span>2 hrs (Bedtime)</span>
@@ -74,11 +74,11 @@ export const EnergyEstimator: React.FC<EnergyEstimatorProps> = ({ onPreFillBooki
                 <span className="text-[11px] text-slate-400 mt-1 block">Frequent power spikes</span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-blue-50/70 border border-blue-200 text-center sm:text-left">
-                <span className="text-[11px] font-medium text-[#0077D4] block uppercase">
+              <div className="p-4 rounded-2xl bg-[#1B5299]/10 border border-[#1B5299]/25 text-center sm:text-left">
+                <span className="text-[11px] font-semibold text-[#1B5299] block uppercase">
                   Modern Inverter
                 </span>
-                <span className="text-xl font-bold text-[#0077D4] font-mono mt-1 block">
+                <span className="text-xl font-bold text-[#1B5299] font-mono mt-1 block">
                   35% Modulated
                 </span>
                 <span className="text-[11px] text-emerald-600 font-semibold mt-1 block">
@@ -86,7 +86,7 @@ export const EnergyEstimator: React.FC<EnergyEstimatorProps> = ({ onPreFillBooki
                 </span>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#0F1E2E] text-white text-center sm:text-left flex flex-col justify-between">
+              <div className="p-4 rounded-2xl bg-[#0A1322] border border-white/10 text-white text-center sm:text-left flex flex-col justify-between">
                 <div>
                   <span className="text-[11px] font-medium text-slate-400 block uppercase">
                     Energy Efficiency
@@ -103,7 +103,7 @@ export const EnergyEstimator: React.FC<EnergyEstimatorProps> = ({ onPreFillBooki
                       notes: `Inquiring about high-efficiency inverter models for energy savings.`,
                     })
                   }
-                  className="mt-2 text-[11px] font-semibold text-sky-300 hover:text-white transition-colors text-left"
+                  className="mt-2 text-[11px] font-semibold text-[#38BDF8] hover:text-white transition-colors text-left"
                 >
                   Ask about inverter models
                 </button>

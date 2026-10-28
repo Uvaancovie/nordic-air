@@ -51,7 +51,7 @@ export const FaqSection: React.FC = () => {
             <span>FAQ</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0F1E2E]">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0A1322]">
             Frequently Asked Questions
           </h2>
 
@@ -72,7 +72,7 @@ export const FaqSection: React.FC = () => {
                   className="w-full flex items-center justify-between text-left group focus:outline-none cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base font-semibold text-slate-900 group-hover:text-[#0077D4] transition-colors pr-6">
+                  <span className="text-base font-semibold text-slate-900 group-hover:text-[#1B5299] transition-colors pr-6">
                     {faq.question}
                   </span>
 
@@ -96,7 +96,7 @@ export const FaqSection: React.FC = () => {
           <span>Have a question not listed here? </span>
           <a
             href="tel:0319403388"
-            className="font-semibold text-[#0077D4] hover:underline ml-1"
+            className="font-semibold text-[#1B5299] hover:underline ml-1"
           >
             Call us directly at (031) 940-3388
           </a>
