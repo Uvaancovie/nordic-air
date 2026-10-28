@@ -6,13 +6,19 @@ interface HeroProps {
   onEmergencyClick: () => void;
 }
 
+const PRICE_BY_BTU: Record<string, string> = {
+  '9,000 BTU': 'R6,700',
+  '12,000 BTU': 'R8,900',
+  '18,000 BTU': 'R13,500',
+  '24,000 BTU': 'R18,900',
+};
+
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) => {
   const [roomSize, setRoomSize] = useState<'small' | 'medium' | 'large'>('medium');
   const [hasHeavySun, setHasHeavySun] = useState(false);
 
   let btu = '12,000 BTU';
   let desc = 'Best for main bedrooms and medium lounges (up to 28m²)';
-  let saving = 'Inverter technology cuts electricity use by over half';
 
   if (roomSize === 'small') {
     if (hasHeavySun) {
@@ -31,7 +37,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
       desc = 'Comfortably cools main bedrooms and medium living areas';
     }
   } else {
-    // large
     if (hasHeavySun) {
       btu = '24,000 BTU';
       desc = 'Heavy-duty cooling for large open-plan living spaces';
@@ -41,227 +46,179 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
     }
   }
 
+  const price = PRICE_BY_BTU[btu] ?? 'R6,700';
+
   const handleUseSize = () => {
     const sizeLabel = roomSize === 'small' ? 'Small room' : roomSize === 'medium' ? 'Medium room' : 'Large room';
-    const notes = `Selected with Sizing Tool: ${sizeLabel} (${hasHeavySun ? 'Heavy Sun / Top Floor' : 'Standard Sun'}) - ${btu} Inverter.`;
+    const notes = `Selected with Sizing Tool: ${sizeLabel} (${hasHeavySun ? 'Heavy Sun / Top Floor' : 'Standard Sun'}) - ${btu} Inverter. From ${price} supplied and standard installed.`;
     onOpenBooking('Installation', notes);
   };
 
+  const whatsappUrl = generateWhatsAppQuoteUrl({
+    serviceType: 'Installation',
+    suburb: 'Umhlanga',
+    details: `Quick Sizing Tool: ${roomSize === 'small' ? 'Small room' : roomSize === 'medium' ? 'Medium room' : 'Large room'} (${hasHeavySun ? 'Heavy Sun / Top Floor' : 'Standard Sun'}) - Recommended ${btu} Inverter (from ${price}).`,
+    isUrgent: false,
+  });
+
+  const sizeOptions: Array<{ id: 'small' | 'medium' | 'large'; label: string }> = [
+    { id: 'small', label: 'Small' },
+    { id: 'medium', label: 'Medium' },
+    { id: 'large', label: 'Large' },
+  ];
+
   return (
-    <section className="relative overflow-hidden pt-8 pb-16 md:pt-16 md:pb-20 bg-gradient-to-b from-[#EBF2F9] via-[#F2F6FA] to-[#F8FAFC]">
-      {/* Background glow matching Nordic brand palette */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#1B5299]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-72 h-72 bg-[#D32626]/5 rounded-full blur-2xl pointer-events-none" />
+    <section className="relative overflow-hidden pt-12 pb-16 md:pt-20 md:pb-24 bg-white">
+      {/* Ambient brand glows */}
+      <div className="absolute top-0 right-1/4 w-[28rem] h-[28rem] bg-[#2563EB]/10 rounded-full blur-[110px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#E11D2E]/[0.07] rounded-full blur-[90px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-          
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+
           {/* Left Column: Headline and Value */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="flex flex-wrap items-center gap-2 text-xs font-medium text-slate-600">
-              <span className="text-[#0A1322] font-bold">DURBAN AND SURROUNDS</span>
-              <span aria-hidden="true" className="text-slate-300">/</span>
-              <span className="text-[#1B5299] font-semibold">Licensed Technicians</span>
-              <span aria-hidden="true" className="text-slate-300">/</span>
-              <span className="inline-flex items-center gap-1.5 text-slate-600">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#D32626]" />
-                Same-Day Emergency Service
-              </span>
+            <div className="text-xs font-bold uppercase tracking-[0.22em] text-[#E11D2E]">
+              Durban <span className="text-[#E11D2E]/60">•</span> Supply &amp; Install
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#0A1322] leading-[1.1] text-balance">
-              Cool, quiet air conditioning for your home.
+            <h1 className="font-extrabold uppercase leading-[0.95] tracking-[-0.035em] text-[#2563EB] text-[2.75rem] sm:text-6xl lg:text-7xl text-balance">
+              <span className="block">Your comfort.</span>
+              <span className="block">Our climate.</span>
             </h1>
 
-            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl">
-              We install, repair, and service air conditioners across Durban, Umhlanga, and Ballito. Clear written quotations, tidy work with no mess, and fast help when your unit stops cooling.
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-lg">
+              Inverter air conditioning from trusted brands, professionally installed across Durban.
             </p>
 
-            {/* Action Buttons (No icons, no emojis) */}
-            <div className="flex flex-wrap items-center gap-4 pt-1">
-              <button
-                type="button"
-                onClick={() => onOpenBooking('Installation')}
-                className="px-6 py-3.5 text-sm font-semibold text-white bg-[#1B5299] hover:bg-[#153e74] rounded-xl shadow-md hover:shadow-lg transition-all duration-200 cursor-pointer"
-              >
-                Get a Free Quote
-              </button>
-
-              <button
-                type="button"
-                onClick={onEmergencyClick}
-                className="px-6 py-3.5 text-sm font-semibold text-[#0A1322] bg-white hover:bg-slate-50 border border-slate-200 hover:border-[#D32626] rounded-xl shadow-xs transition-all duration-200 group cursor-pointer flex items-center gap-2"
-              >
-                <span className="w-2 h-2 rounded-full bg-[#D32626]" />
-                <span>Urgent Repair Help</span>
-                <span className="text-[11px] font-mono text-[#D32626] font-semibold bg-red-50 border border-red-100 px-1.5 py-0.5 rounded ml-1">
-                  24/7 Callout
-                </span>
-              </button>
-            </div>
-
-            {/* Guarantees (No icons, no prices) */}
-            <div className="pt-4 border-t border-slate-200/80 grid grid-cols-3 gap-4 text-xs text-slate-600">
-              <div>
-                <span className="font-bold text-[#0A1322] block text-sm">Fixed Written Quotes</span>
-                No hidden costs or extras
-              </div>
-              <div>
-                <span className="font-bold text-[#0A1322] block text-sm">5-Year Warranty</span>
-                On all new installations
-              </div>
-              <div>
-                <span className="font-bold text-[#0A1322] block text-sm">Resists Sea Rust</span>
-                Built to handle Durban air
-              </div>
+            <div className="pt-2 flex flex-wrap items-center gap-x-6 gap-y-2 text-[11px] font-semibold uppercase tracking-wider text-slate-600">
+              <span>Fixed written quotes</span>
+              <span className="w-1 h-1 rounded-full bg-slate-600" aria-hidden="true" />
+              <span>5-year warranty</span>
+              <span className="w-1 h-1 rounded-full bg-slate-600" aria-hidden="true" />
+              <span>Coastal anti-rust</span>
             </div>
           </div>
 
-          {/* Right Column: Neat Sizing Tool (No icons, no emojis, NO prices) */}
-          <div className="lg:col-span-5">
-            <div className="relative mx-auto max-w-md w-full">
-              <div className="neo-card rounded-3xl p-6 sm:p-7 glass-panel relative overflow-hidden shadow-md">
-                
-                <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-                  <div>
-                    <h3 className="text-sm font-bold text-[#0A1322] leading-tight">
-                      Quick AC Sizing Tool
-                    </h3>
-                    <p className="text-[11px] text-slate-500">Find the right unit for your room</p>
-                  </div>
-                  <span className="text-[10px] font-mono font-semibold text-[#1B5299] bg-[#1B5299]/10 px-2.5 py-0.5 rounded-full border border-[#1B5299]/20">
-                    Room Sizer
+          {/* Right Column: Product Card, Price & Primary CTA */}
+          <div className="lg:col-span-5 w-full">
+            <div className="mx-auto max-w-md w-full">
+
+              {/* Product panel */}
+              <div className="rounded-[2rem] bg-white border border-slate-200 p-5 sm:p-6 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.9)]">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-slate-600">
+                    Inverter Mid-Wall Split
                   </span>
+                  <span className="w-2 h-2 rounded-full bg-[#E11D2E] animate-soft-pulse" aria-hidden="true" />
                 </div>
 
-                <div className="py-4 space-y-4">
-                  {/* Step 1: Room Size */}
-                  <div>
-                    <span className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-2">
-                      1. Room Size
-                    </span>
-                    <div className="grid grid-cols-3 gap-2">
-                      <button
-                        type="button"
-                        onClick={() => setRoomSize('small')}
-                        className={`p-2.5 rounded-xl text-center border transition-all cursor-pointer ${
-                          roomSize === 'small'
-                            ? 'bg-[#1B5299] text-white border-[#1B5299] shadow-xs'
-                            : 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
-                        }`}
-                      >
-                        <div className="text-xs font-bold">Small</div>
-                        <div className={`text-[10px] ${roomSize === 'small' ? 'text-sky-100' : 'text-slate-400'}`}>
-                          Bedroom
-                        </div>
-                      </button>
+                {/* Light inner card with AC unit illustration */}
+                <div className="mt-5 rounded-[1.4rem] bg-[#EFF4FF] h-40 sm:h-48 relative overflow-hidden flex items-center justify-center">
+                  <div className="absolute inset-x-0 top-0 h-14 bg-gradient-to-b from-white/70 to-transparent" aria-hidden="true" />
+                  <svg
+                    viewBox="0 0 280 100"
+                    className="relative w-[86%] max-w-[280px] drop-shadow-[0_10px_18px_rgba(15,30,60,0.18)]"
+                    aria-hidden="true"
+                  >
+                    <defs>
+                      <linearGradient id="ac-body" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stopColor="#FFFFFF" />
+                        <stop offset="100%" stopColor="#DCE4F1" />
+                      </linearGradient>
+                    </defs>
+                    <rect x="6" y="16" width="268" height="70" rx="22" fill="url(#ac-body)" stroke="#C6D2E5" strokeWidth="1.2" />
+                    <rect x="24" y="52" width="232" height="3" rx="1.5" fill="#D9E1EE" />
+                    <rect x="24" y="66" width="232" height="8" rx="4" fill="#C2CFE2" />
+                    <circle cx="250" cy="34" r="4" fill="#E11D2E" />
+                  </svg>
+                </div>
 
-                      <button
-                        type="button"
-                        onClick={() => setRoomSize('medium')}
-                        className={`p-2.5 rounded-xl text-center border transition-all cursor-pointer ${
-                          roomSize === 'medium'
-                            ? 'bg-[#1B5299] text-white border-[#1B5299] shadow-xs'
-                            : 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
-                        }`}
-                      >
-                        <div className="text-xs font-bold">Medium</div>
-                        <div className={`text-[10px] ${roomSize === 'medium' ? 'text-sky-100' : 'text-slate-400'}`}>
-                          Master Bed
-                        </div>
-                      </button>
-
-                      <button
-                        type="button"
-                        onClick={() => setRoomSize('large')}
-                        className={`p-2.5 rounded-xl text-center border transition-all cursor-pointer ${
-                          roomSize === 'large'
-                            ? 'bg-[#1B5299] text-white border-[#1B5299] shadow-xs'
-                            : 'bg-white hover:bg-slate-50 text-slate-700 border-slate-200'
-                        }`}
-                      >
-                        <div className="text-xs font-bold">Large</div>
-                        <div className={`text-[10px] ${roomSize === 'large' ? 'text-sky-100' : 'text-slate-400'}`}>
-                          Lounge
-                        </div>
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Step 2: Sun Exposure */}
-                  <div className="flex items-center justify-between p-3 rounded-xl bg-slate-50/80 border border-slate-200/80">
-                    <span className="text-xs font-medium text-slate-700">
-                      Gets strong afternoon sun or sea glare?
-                    </span>
+                {/* Room sizing controls */}
+                <div className="mt-5 grid grid-cols-3 gap-2">
+                  {sizeOptions.map((option) => (
                     <button
+                      key={option.id}
                       type="button"
-                      onClick={() => setHasHeavySun(!hasHeavySun)}
-                      className={`px-3 py-1 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${
-                        hasHeavySun
-                          ? 'bg-[#1B5299] text-white'
-                          : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-100'
+                      onClick={() => setRoomSize(option.id)}
+                      className={`py-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
+                        roomSize === option.id
+                          ? 'bg-[#2563EB] text-white border-[#2563EB]'
+                          : 'bg-[#2563EB]/[0.05] text-slate-600 border-slate-200 hover:bg-[#2563EB]/[0.08]'
                       }`}
                     >
-                      {hasHeavySun ? 'Yes (Sun)' : 'Normal'}
+                      {option.label}
                     </button>
-                  </div>
-
-                  {/* Recommendation Box (NO prices, pure technical recommendation) */}
-                  <div className="p-4 rounded-2xl bg-gradient-to-br from-[#0A1322] to-[#162740] text-white shadow-sm border border-white/10">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <span className="text-[10px] font-mono uppercase tracking-wider text-sky-300">
-                          Recommended Sizing
-                        </span>
-                        <div className="text-2xl font-bold font-mono tracking-tight text-white mt-0.5">
-                          {btu}
-                        </div>
-                      </div>
-                      <div className="text-right">
-                        <span className="text-[10px] uppercase text-slate-400 block">Assessment</span>
-                        <span className="text-xs font-semibold text-emerald-300">Free On-Site</span>
-                      </div>
-                    </div>
-
-                    <p className="text-xs text-slate-300 mt-2">
-                      {desc}
-                    </p>
-
-                    <div className="mt-3 pt-2 border-t border-white/10 text-[11px] text-sky-200">
-                      {saving}
-                    </div>
-                  </div>
+                  ))}
                 </div>
 
-                <div className="space-y-2">
-                  <button
-                    type="button"
-                    onClick={handleUseSize}
-                    className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-white bg-[#1B5299] hover:bg-[#153e74] flex items-center justify-center transition-all shadow-xs cursor-pointer"
-                  >
-                    Book Free Assessment For This Size
-                  </button>
+                <button
+                  type="button"
+                  onClick={() => setHasHeavySun(!hasHeavySun)}
+                  className={`mt-2 w-full py-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
+                    hasHeavySun
+                      ? 'bg-[#2563EB]/15 text-[#2563EB] border-[#2563EB]/40'
+                      : 'bg-[#2563EB]/[0.05] text-slate-600 border-slate-200 hover:bg-[#2563EB]/[0.08]'
+                  }`}
+                >
+                  {hasHeavySun ? 'Heavy afternoon sun — included' : 'Gets strong afternoon sun?'}
+                </button>
 
-                  <a
-                    href={generateWhatsAppQuoteUrl({
-                      serviceType: 'Installation',
-                      suburb: 'Umhlanga',
-                      details: `Quick Sizing Tool: ${roomSize === 'small' ? 'Small room' : roomSize === 'medium' ? 'Medium room' : 'Large room'} (${hasHeavySun ? 'Heavy Sun / Top Floor' : 'Standard Sun'}) - Recommended ${btu} Inverter.`,
-                      isUrgent: false,
-                    })}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-2.5 px-4 rounded-xl text-xs font-semibold text-[#0A1322] bg-white hover:bg-slate-50 border border-slate-200 flex items-center justify-center transition-all shadow-xs text-center"
-                  >
-                    WhatsApp This Sizing to Technician
-                  </a>
-                </div>
-
-                <p className="text-[10px] text-slate-400 text-center mt-2.5">
-                  Free site visit · Written quotation with no obligation
+                <p className="mt-3 text-[11px] leading-relaxed text-slate-600">
+                  {desc}
                 </p>
-
               </div>
+
+              {/* Price block */}
+              <div className="mt-7 px-1">
+                <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-slate-600">
+                  From
+                </span>
+                <div className="mt-1 text-5xl sm:text-6xl font-extrabold tracking-[-0.04em] text-[#2563EB] leading-none">
+                  {price}
+                </div>
+                <div className="mt-2.5 text-xs font-bold uppercase tracking-wider text-slate-600">
+                  {btu} <span className="text-[#E11D2E]">•</span> Supplied &amp; Standard Installed
+                </div>
+              </div>
+
+              {/* Primary CTA */}
+              <button
+                type="button"
+                onClick={handleUseSize}
+                className="group mt-6 w-full rounded-2xl bg-[#2563EB] hover:bg-[#1D4ED8] px-6 py-4 text-left transition-colors shadow-[0_18px_40px_-20px_rgba(37,99,235,0.55)] cursor-pointer"
+              >
+                <span className="block text-base font-extrabold uppercase tracking-tight text-[#2563EB]">
+                  Book your installation
+                </span>
+                <span className="mt-1 block text-xs text-white/80">
+                  Message us for availability, sizing advice and a quote.
+                </span>
+              </button>
+
+              <p className="mt-4 text-[11px] text-slate-600">
+                Standard installation conditions apply <span className="text-slate-600">•</span> Prices subject to availability
+              </p>
+
+              <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-[11px]">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-slate-600 hover:text-[#2563EB] transition-colors"
+                >
+                  WhatsApp this sizing
+                </a>
+                <button
+                  type="button"
+                  onClick={onEmergencyClick}
+                  className="inline-flex items-center gap-1.5 font-semibold text-slate-600 hover:text-[#2563EB] transition-colors cursor-pointer"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#E11D2E]" aria-hidden="true" />
+                  Urgent repair? Call 031 940 3388
+                </button>
+              </div>
+
             </div>
           </div>
 

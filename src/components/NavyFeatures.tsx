@@ -32,12 +32,12 @@ export const NavyFeatures: React.FC = () => {
   return (
     <section className="py-12 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="rounded-3xl bg-[#0A1322] p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden border border-[#1B5299]/25">
-          {/* Subtle background glow matching brand palette */}
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#1B5299]/20 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#D32626]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="rounded-3xl bg-white p-8 sm:p-12 text-[#2563EB] shadow-2xl relative overflow-hidden border border-slate-200">
+          {/* Subtle background glows */}
+          <div className="absolute top-0 right-0 w-80 h-80 bg-[#2563EB]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#E11D2E]/10 rounded-full blur-3xl pointer-events-none" />
 
-          <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 divide-y md:divide-y-0 lg:divide-x divide-white/10">
+          <div className="relative grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 divide-y md:divide-y-0 lg:divide-x divide-slate-200">
             {features.map((item, idx) => (
               <div
                 key={idx}
@@ -45,19 +45,18 @@ export const NavyFeatures: React.FC = () => {
                   idx > 0 ? 'pt-6 md:pt-0 lg:pl-6' : ''
                 }`}
               >
-                {/* Neomorphic white rounded number tile (No icon) */}
-                <div className="relative mb-5 w-12 h-12 rounded-2xl bg-white/10 border border-white/15 flex items-center justify-center text-[#38BDF8] font-mono font-bold text-sm transition-transform hover:scale-105">
+                <div className="relative mb-5 w-12 h-12 rounded-2xl bg-[#2563EB]/5 border border-slate-200 flex items-center justify-center text-[#2563EB] font-mono font-bold text-sm transition-transform hover:scale-105">
                   <span>{item.num}</span>
                   {item.hasEmergencyBadge && (
-                    <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#D32626] border-2 border-[#0A1322] animate-soft-pulse" />
+                    <span className="absolute -top-1 -right-1 w-3 h-3 rounded-full bg-[#E11D2E] border-2 border-white animate-soft-pulse" />
                   )}
                 </div>
 
-                <h3 className="text-base font-bold text-white tracking-tight mb-2">
+                <h3 className="text-base font-bold text-[#2563EB] tracking-tight mb-2">
                   {item.title}
                 </h3>
 
-                <p className="text-xs text-slate-300 leading-relaxed">
+                <p className="text-xs text-slate-600 leading-relaxed">
                   {item.description}
                 </p>
               </div>

@@ -77,60 +77,54 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
   };
 
   return (
-    <section id="booking" className="py-20 bg-slate-100">
+    <section id="booking" className="py-20 bg-[#F4F7FE]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Outer Split Card (NO icons, NO emojis, NO prices) */}
-        <div className="neo-card rounded-3xl bg-white shadow-xl overflow-hidden border border-slate-200">
+
+        {/* Outer Split Card */}
+        <div className="surface-card rounded-3xl overflow-hidden">
           <div className="grid grid-cols-1 lg:grid-cols-12">
-            
-            {/* Left Column: Clean Dark Navy Contact Block */}
-            <div className="lg:col-span-5 bg-[#0A1322] flex flex-col justify-between p-8 sm:p-10 text-white min-h-[440px] border-b lg:border-b-0 lg:border-r border-white/10">
-              
+
+            {/* Left Column: Contact Block */}
+            <div className="lg:col-span-5 bg-white flex flex-col justify-between p-8 sm:p-10 text-[#2563EB] min-h-[440px] border-b lg:border-b-0 lg:border-r border-slate-200">
+
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src="/assets/aistudio/nordic-logo_9359fca8.jpeg"
-                      alt="Nordic Air"
-                      className="w-10 h-10 rounded-full object-cover ring-2 ring-[#D32626]/40 shadow-sm"
-                    />
-                    <div>
-                      <span className="text-xs font-bold text-sky-300 font-mono tracking-wider uppercase block">
-                        DURBAN AIRCON TEAM
-                      </span>
-                      <span className="text-[10px] text-white/70">
-                        Licensed & Guaranteed
-                      </span>
-                    </div>
+                  <div className="flex flex-col">
+                    <span className="text-lg font-extrabold tracking-tight leading-none">
+                      <span className="text-[#2563EB]">NORDIC</span>
+                      <span className="text-[#E11D2E] ml-1.5">AIR</span>
+                    </span>
+                    <span className="text-[9px] tracking-[0.24em] text-slate-600 font-semibold uppercase mt-1.5">
+                      Durban Aircon Team
+                    </span>
                   </div>
 
-                  <span className="text-xs text-white/90 bg-white/10 px-3 py-1 rounded-full border border-white/10">
+                  <span className="text-xs text-slate-600 bg-[#2563EB]/5 px-3 py-1 rounded-full border border-slate-200">
                     On Standby
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-white leading-tight">
+                  <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#2563EB] leading-tight">
                     Book Your Service
                   </h3>
-                  <p className="text-sm text-slate-300 mt-2 leading-relaxed">
+                  <p className="text-sm text-slate-600 mt-2 leading-relaxed">
                     Book online in 1 minute, or call us directly. We will confirm your time and send a qualified technician to your door.
                   </p>
                 </div>
               </div>
 
-              {/* Direct Contact Points (Text only) */}
-              <div className="pt-8 space-y-4 border-t border-white/10 text-xs text-slate-300">
+              {/* Direct Contact Points */}
+              <div className="pt-8 space-y-4 border-t border-slate-200 text-xs text-slate-600">
                 <div className="space-y-2">
                   <a
                     href="tel:0319403388"
-                    className="block p-3.5 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+                    className="block p-3.5 rounded-2xl bg-[#2563EB]/5 border border-slate-200 hover:bg-[#2563EB]/10 transition-colors"
                   >
-                    <span className="block text-[10px] text-slate-400 uppercase tracking-wider">
+                    <span className="block text-[10px] text-slate-600 uppercase tracking-wider">
                       Emergency Repair Line (24/7)
                     </span>
-                    <span className="font-bold text-base text-white font-mono mt-0.5 block">
+                    <span className="font-bold text-base text-[#2563EB] font-mono mt-0.5 block">
                       031 940 3388
                     </span>
                   </a>
@@ -144,28 +138,28 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                     })}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block p-3.5 rounded-2xl bg-[#1B5299]/25 border border-[#1B5299]/40 hover:bg-[#1B5299]/35 transition-colors"
+                    className="block p-3.5 rounded-2xl bg-[#2563EB]/15 border border-[#2563EB]/30 hover:bg-[#2563EB]/25 transition-colors"
                   >
-                    <span className="block text-[10px] text-sky-300 uppercase tracking-wider font-semibold">
+                    <span className="block text-[10px] text-[#2563EB] uppercase tracking-wider font-semibold">
                       Direct WhatsApp Dispatch
                     </span>
-                    <span className="font-bold text-sm text-white mt-0.5 block">
+                    <span className="font-bold text-sm text-[#2563EB] mt-0.5 block">
                       Chat With On-Call Tech
                     </span>
                   </a>
                 </div>
 
-                <div className="px-1 text-slate-300 space-y-1.5">
+                <div className="px-1 text-slate-600 space-y-1.5">
                   <div>
-                    <span className="text-slate-400 block text-[10px] uppercase">Service Hours:</span>
+                    <span className="text-slate-600 block text-[10px] uppercase">Service Hours:</span>
                     <span>Monday to Sunday: 24/7 Urgent Dispatch</span>
                   </div>
                   <div>
-                    <span className="text-slate-400 block text-[10px] uppercase">Address:</span>
+                    <span className="text-slate-600 block text-[10px] uppercase">Address:</span>
                     <span>Umhlanga Ridge, Greater Durban</span>
                   </div>
                   <div>
-                    <span className="text-slate-400 block text-[10px] uppercase">Email:</span>
+                    <span className="text-slate-600 block text-[10px] uppercase">Email:</span>
                     <span>service@nordicair.co.za</span>
                   </div>
                 </div>
@@ -173,26 +167,26 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
 
             </div>
 
-            {/* Right Column: Clean Form (No Icons, No Emojis, No Prices) */}
+            {/* Right Column: Form */}
             <div className="lg:col-span-7 p-8 sm:p-10 flex flex-col justify-center">
-              
+
               {submitted ? (
                 <div className="text-center py-8 space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-emerald-50 text-emerald-600 font-bold text-lg flex items-center justify-center mx-auto">
+                  <div className="w-12 h-12 rounded-full bg-emerald-400/10 text-emerald-300 font-bold text-lg flex items-center justify-center mx-auto border border-emerald-400/20">
                     OK
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 tracking-tight">
+                  <h3 className="text-2xl font-extrabold text-[#2563EB] tracking-tight">
                     Thank You, {formData.fullName}
                   </h3>
                   <p className="text-sm text-slate-600 max-w-md mx-auto">
                     We received your request. Reference{' '}
-                    <span className="font-mono font-semibold text-[#1B5299]">#NA-{Math.floor(1000 + Math.random() * 9000)}</span>.
+                    <span className="font-mono font-semibold text-[#2563EB]">#NA-{Math.floor(1000 + Math.random() * 9000)}</span>.
                     Our team will call you at{' '}
-                    <span className="font-mono font-semibold text-slate-900">{formData.phone}</span> shortly to confirm your booking.
+                    <span className="font-mono font-semibold text-[#2563EB]">{formData.phone}</span> shortly to confirm your booking.
                   </p>
-                  
+
                   {formData.isUrgent && (
-                    <div className="p-3 bg-red-50 text-[#D32626] rounded-xl text-xs font-semibold max-w-md mx-auto border border-red-200">
+                    <div className="p-3 bg-[#E11D2E]/10 text-red-600 rounded-xl text-xs font-semibold max-w-md mx-auto border border-[#E11D2E]/30">
                       Urgent dispatch requested: An on-call Durban technician has been notified.
                     </div>
                   )}
@@ -201,7 +195,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                     <button
                       type="button"
                       onClick={handleReset}
-                      className="px-5 py-2.5 text-xs font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors cursor-pointer w-full sm:w-auto"
+                      className="px-5 py-2.5 text-xs font-semibold text-slate-700 bg-[#2563EB]/5 hover:bg-[#2563EB]/10 border border-slate-200 rounded-xl transition-colors cursor-pointer w-full sm:w-auto"
                     >
                       Book Another Visit
                     </button>
@@ -217,7 +211,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                       })}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 text-xs font-semibold text-white bg-[#1B5299] hover:bg-[#153e74] rounded-xl transition-colors cursor-pointer w-full sm:w-auto text-center"
+                      className="px-5 py-2.5 text-xs font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl transition-colors cursor-pointer w-full sm:w-auto text-center"
                     >
                       Follow Up on WhatsApp
                     </a>
@@ -226,7 +220,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   {errorMsg && (
-                    <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-xs">
+                    <div className="p-3 rounded-xl bg-[#E11D2E]/10 border border-[#E11D2E]/30 text-red-600 text-xs">
                       {errorMsg}
                     </div>
                   )}
@@ -234,7 +228,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                   {/* Name and Email */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
                         Your Name*
                       </label>
                       <input
@@ -243,12 +237,12 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         placeholder="e.g. David Moodley"
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1B5299] transition-all"
+                        className="field-dark w-full px-4 py-2.5 rounded-xl text-sm"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
                         Email Address*
                       </label>
                       <input
@@ -257,7 +251,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="e.g. david@example.co.za"
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1B5299] transition-all"
+                        className="field-dark w-full px-4 py-2.5 rounded-xl text-sm"
                       />
                     </div>
                   </div>
@@ -265,7 +259,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                   {/* Phone and Suburb */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
                         Phone Number*
                       </label>
                       <input
@@ -274,18 +268,18 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="e.g. 082 123 4567"
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1B5299] transition-all font-mono"
+                        className="field-dark w-full px-4 py-2.5 rounded-xl text-sm font-mono"
                       />
                     </div>
 
                     <div>
-                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                      <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
                         Your Suburb*
                       </label>
                       <select
                         value={formData.suburb}
                         onChange={(e) => setFormData({ ...formData, suburb: e.target.value })}
-                        className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1B5299] transition-all"
+                        className="field-dark w-full px-4 py-2.5 rounded-xl text-sm"
                       >
                         <optgroup label="North Coast & Northern Suburbs">
                           <option value="Umhlanga, Gateway & Prestondale">Umhlanga, Gateway & Prestondale</option>
@@ -326,13 +320,13 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
 
                   {/* Service dropdown */}
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
                       What do you need help with?*
                     </label>
                     <select
                       value={formData.serviceType}
                       onChange={(e) => setFormData({ ...formData, serviceType: e.target.value })}
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1B5299] transition-all"
+                      className="field-dark w-full px-4 py-2.5 rounded-xl text-sm"
                     >
                       <option value="Installation">New Air Conditioner Installation</option>
                       <option value="Repair">Fix a Broken AC (Not cooling, leaking, noises)</option>
@@ -342,24 +336,24 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                   </div>
 
                   {/* Urgent toggle */}
-                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-[#2563EB]/[0.04] border border-slate-200 flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                       <input
                         type="checkbox"
                         id="urgent-dispatch"
                         checked={formData.isUrgent}
                         onChange={(e) => setFormData({ ...formData, isUrgent: e.target.checked })}
-                        className="w-4 h-4 rounded text-[#D32626] focus:ring-[#D32626] border-slate-300 accent-[#D32626] cursor-pointer"
+                        className="w-4 h-4 rounded text-[#E11D2E] focus:ring-[#E11D2E] border-slate-300 accent-[#E11D2E] cursor-pointer"
                       />
-                      <label htmlFor="urgent-dispatch" className="text-xs font-semibold text-slate-800 cursor-pointer">
+                      <label htmlFor="urgent-dispatch" className="text-xs font-semibold text-slate-700 cursor-pointer">
                         Need help urgently today?{' '}
-                        <span className="text-[11px] text-[#D32626] font-bold">
+                        <span className="text-[11px] text-[#E11D2E] font-bold">
                           (Same-Day Priority)
                         </span>
                       </label>
                     </div>
                     {formData.isUrgent && (
-                      <span className="text-[10px] uppercase font-bold text-[#D32626] bg-red-50 border border-red-200 px-2 py-0.5 rounded">
+                      <span className="text-[10px] uppercase font-bold text-red-600 bg-[#E11D2E]/10 border border-[#E11D2E]/30 px-2 py-0.5 rounded">
                         Fast Callout
                       </span>
                     )}
@@ -367,7 +361,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
 
                   {/* Message */}
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
                       Notes or Room Details (Optional)
                     </label>
                     <textarea
@@ -375,7 +369,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                       value={formData.notes}
                       onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                       placeholder="e.g. Master bedroom on 2nd floor, or AC is making a strange sound..."
-                      className="w-full px-4 py-2.5 rounded-xl border border-slate-200 text-sm text-slate-900 bg-slate-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1B5299] transition-all"
+                      className="field-dark w-full px-4 py-2.5 rounded-xl text-sm"
                     />
                   </div>
 
@@ -385,7 +379,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                       <button
                         type="submit"
                         disabled={loading}
-                        className="w-full py-3.5 px-5 text-sm font-semibold text-white bg-[#1B5299] hover:bg-[#153e74] rounded-xl shadow-sm transition-all cursor-pointer disabled:opacity-50 text-center"
+                        className="w-full py-3.5 px-5 text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl shadow-sm transition-all cursor-pointer disabled:opacity-50 text-center"
                       >
                         {loading ? 'Sending...' : 'Send Online Request'}
                       </button>
@@ -401,13 +395,13 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                         })}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-3.5 px-5 text-sm font-semibold text-slate-800 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition-all text-center inline-block"
+                        className="w-full py-3.5 px-5 text-sm font-semibold text-slate-700 bg-[#2563EB]/5 hover:bg-[#2563EB]/10 border border-slate-200 rounded-xl transition-all text-center inline-block"
                       >
                         Send via WhatsApp Now
                       </a>
                     </div>
 
-                    <div className="flex items-center justify-between text-[11px] text-slate-500 pt-1">
+                    <div className="flex items-center justify-between text-[11px] text-slate-600 pt-1">
                       <span>Free written quotation · No obligations</span>
                       <span>Durban team on standby</span>
                     </div>

@@ -115,16 +115,16 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
   const currentServices = activeTab === 'residential' ? residentialServices : commercialServices;
 
   return (
-    <section id="services" className="py-20 bg-[#F8FAFC]">
+    <section id="services" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3 mb-10">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold uppercase tracking-wider text-slate-600">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#2563EB]/5 border border-slate-200 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600">
             <span>What We Do</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0A1322]">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#2563EB]">
             Our Services
           </h2>
 
@@ -135,14 +135,14 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
 
         {/* Tab Toggle */}
         <div className="flex justify-center mb-12">
-          <div className="inline-flex p-1.5 rounded-2xl bg-white border border-slate-200 shadow-xs">
+          <div className="inline-flex p-1.5 rounded-2xl bg-[#2563EB]/5 border border-slate-200">
             <button
               type="button"
               onClick={() => setActiveTab('residential')}
               className={`px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                 activeTab === 'residential'
-                  ? 'bg-[#1B5299] text-white shadow-sm'
-                  : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-[#2563EB] text-white shadow-sm'
+                  : 'text-slate-600 hover:text-[#2563EB]'
               }`}
             >
               Home Air Conditioning
@@ -152,8 +152,8 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
               onClick={() => setActiveTab('commercial')}
               className={`px-6 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer ${
                 activeTab === 'commercial'
-                  ? 'bg-[#1B5299] text-white shadow-sm'
-                  : 'text-slate-600 hover:text-slate-900'
+                  ? 'bg-[#2563EB] text-white shadow-sm'
+                  : 'text-slate-600 hover:text-[#2563EB]'
               }`}
             >
               Business & Offices
@@ -161,31 +161,31 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
           </div>
         </div>
 
-        {/* 3 Cards Grid (NO icons, NO emojis, NO prices) */}
+        {/* 3 Cards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {currentServices.map((service, idx) => (
             <div
               key={service.id}
-              className="neo-card neo-card-hover rounded-3xl overflow-hidden flex flex-col bg-white border border-slate-200/90 shadow-sm"
+              className="surface-card surface-card-hover rounded-3xl overflow-hidden flex flex-col"
             >
-              {/* Clean Top Bar */}
-              <div className="p-6 pb-4 bg-gradient-to-br from-slate-50 via-sky-50/30 to-white border-b border-slate-100 flex items-center justify-between">
-                <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider">
+              {/* Top Bar */}
+              <div className="p-6 pb-4 bg-[#2563EB]/[0.04] border-b border-slate-200 flex items-center justify-between">
+                <span className="text-xs font-mono font-bold text-slate-600 uppercase tracking-wider">
                   0{idx + 1}
                 </span>
 
                 {idx === 1 && (
-                  <span className="text-[10px] font-semibold tracking-wider uppercase bg-[#D32626] text-white px-2.5 py-1 rounded-full shadow-xs">
+                  <span className="text-[10px] font-semibold tracking-wider uppercase bg-[#E11D2E] text-white px-2.5 py-1 rounded-full shadow-sm">
                     24/7 Callout
                   </span>
                 )}
                 {idx === 0 && (
-                  <span className="text-[10px] font-semibold tracking-wider uppercase bg-[#1B5299]/10 text-[#1B5299] px-2.5 py-1 rounded-full">
+                  <span className="text-[10px] font-semibold tracking-wider uppercase bg-[#2563EB]/15 text-[#2563EB] border border-[#2563EB]/30 px-2.5 py-1 rounded-full">
                     Most Popular
                   </span>
                 )}
                 {idx === 2 && (
-                  <span className="text-[10px] font-semibold tracking-wider uppercase bg-emerald-100 text-emerald-700 px-2.5 py-1 rounded-full">
+                  <span className="text-[10px] font-semibold tracking-wider uppercase bg-emerald-400/10 text-emerald-300 border border-emerald-400/20 px-2.5 py-1 rounded-full">
                     5-Yr Warranty
                   </span>
                 )}
@@ -194,31 +194,30 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
               {/* Card Content Body */}
               <div className="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-6">
                 <div>
-                  <h3 className="text-xl font-bold tracking-tight text-[#0A1322]">
+                  <h3 className="text-xl font-bold tracking-tight text-[#2563EB]">
                     {service.title}
                   </h3>
 
-                  <p className="text-xs text-slate-500 mt-1 mb-5">
+                  <p className="text-xs text-slate-600 mt-1 mb-5">
                     {service.tagline}
                   </p>
 
-                  {/* Clean typographic list items (no icons) */}
                   <div className="space-y-2.5">
                     {service.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-2 text-xs text-slate-700">
-                        <span className="text-[#1B5299] font-bold shrink-0">—</span>
+                      <div key={fIdx} className="flex items-start gap-2 text-xs text-slate-600">
+                        <span className="text-[#2563EB] font-bold shrink-0">—</span>
                         <span>{feat}</span>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Action Buttons (Text only, no icons) */}
-                <div className="grid grid-cols-2 gap-3 pt-4 border-t border-slate-100">
+                {/* Action Buttons */}
+                <div className="grid grid-cols-2 gap-3 pt-4 border-t border-slate-200">
                   <button
                     type="button"
                     onClick={() => onBookService(service.title)}
-                    className="px-4 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#0A1322] hover:bg-[#162740] shadow-xs transition-colors cursor-pointer text-center"
+                    className="px-4 py-2.5 rounded-xl text-xs font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] shadow-sm transition-colors cursor-pointer text-center"
                   >
                     Book Now
                   </button>
@@ -226,7 +225,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ onBookService 
                   <button
                     type="button"
                     onClick={() => setSelectedService(service)}
-                    className="px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 transition-colors cursor-pointer text-center"
+                    className="px-4 py-2.5 rounded-xl text-xs font-semibold text-slate-700 bg-[#2563EB]/5 hover:bg-[#2563EB]/10 border border-slate-200 transition-colors cursor-pointer text-center"
                   >
                     Learn More
                   </button>

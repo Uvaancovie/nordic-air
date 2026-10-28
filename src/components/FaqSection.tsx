@@ -44,14 +44,14 @@ export const FaqSection: React.FC = () => {
   return (
     <section id="faq" className="py-20 bg-white">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-semibold uppercase tracking-wider text-slate-600 mb-3">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#2563EB]/5 border border-slate-200 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600 mb-3">
             <span>FAQ</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0A1322]">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#2563EB]">
             Frequently Asked Questions
           </h2>
 
@@ -60,7 +60,7 @@ export const FaqSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Accordion List (NO icons, clean text +/- expander) */}
+        {/* Accordion List */}
         <div className="divide-y divide-slate-200 border-t border-b border-slate-200">
           {faqs.map((faq, idx) => {
             const isOpen = openIdx === idx;
@@ -72,11 +72,11 @@ export const FaqSection: React.FC = () => {
                   className="w-full flex items-center justify-between text-left group focus:outline-none cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base font-semibold text-slate-900 group-hover:text-[#1B5299] transition-colors pr-6">
+                  <span className="text-base font-semibold text-slate-700 group-hover:text-[#2563EB] transition-colors pr-6">
                     {faq.question}
                   </span>
 
-                  <span className="text-slate-400 font-mono font-bold text-lg w-6 text-center shrink-0">
+                  <span className="text-slate-600 font-mono font-bold text-lg w-6 text-center shrink-0">
                     {isOpen ? '−' : '+'}
                   </span>
                 </button>
@@ -91,12 +91,12 @@ export const FaqSection: React.FC = () => {
           })}
         </div>
 
-        {/* Contact fallback block (No icons, no emojis) */}
-        <div className="mt-10 p-6 rounded-2xl bg-slate-50 border border-slate-200 text-center text-xs text-slate-600">
+        {/* Contact fallback block */}
+        <div className="mt-10 p-6 rounded-2xl bg-[#2563EB]/[0.04] border border-slate-200 text-center text-xs text-slate-600">
           <span>Have a question not listed here? </span>
           <a
             href="tel:0319403388"
-            className="font-semibold text-[#1B5299] hover:underline ml-1"
+            className="font-semibold text-[#2563EB] hover:underline ml-1"
           >
             Call us directly at (031) 940-3388
           </a>

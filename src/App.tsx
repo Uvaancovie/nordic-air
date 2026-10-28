@@ -5,6 +5,7 @@ import { TrustMetrics } from './components/TrustMetrics';
 import { AboutSection } from './components/AboutSection';
 import { NavyFeatures } from './components/NavyFeatures';
 import { ServicesSection } from './components/ServicesSection';
+import { SizingCalculator } from './components/SizingCalculator';
 import { CaseStudies } from './components/CaseStudies';
 import { ServiceAreas } from './components/ServiceAreas';
 import { EnergyEstimator } from './components/EnergyEstimator';
@@ -55,13 +56,16 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FAFC] text-[#0A1322] font-sans antialiased selection:bg-[#1B5299] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-white text-[#2563EB] font-sans antialiased selection:bg-[#E11D2E] selection:text-white">
+      {/* Top red brand accent bar */}
+      <div className="h-1.5 w-full bg-[#E11D2E]" aria-hidden="true" />
+
       {/* Top Navigation */}
       <Navbar onOpenBooking={(s) => scrollToBooking(s)} />
 
       {/* Main Page Flow */}
       <main className="flex-1">
-        {/* 1. Hero Section with Compact Sizing Tool */}
+        {/* 1. Hero Section with product card and sizing */}
         <Hero
           onOpenBooking={(s, notes) => scrollToBooking(s, undefined, notes)}
           onEmergencyClick={handleEmergencyClick}
@@ -79,26 +83,29 @@ export default function App() {
         {/* 5. Services & Solutions Grid with Residential / Commercial Toggles */}
         <ServicesSection onBookService={(s) => scrollToBooking(s)} />
 
-        {/* 6. Real Durban Installation Case Studies & Proof */}
+        {/* 6. Detailed Room Sizing & Unit Recommendation Calculator */}
+        <SizingCalculator onAddToBooking={handlePreFillBooking} />
+
+        {/* 7. Real Durban Installation Case Studies & Proof */}
         <CaseStudies onRequestSetup={handleSelectCaseStudy} />
 
         {/* 7. Durban Service Area Map & Interactive Suburb Selector */}
         <ServiceAreas onSelectArea={handleAreaSelect} />
 
-        {/* 7. Interactive Room Sizing & Inverter Energy Calculator */}
+        {/* 8. Interactive Room Sizing & Inverter Energy Calculator */}
         <EnergyEstimator onPreFillBooking={handlePreFillBooking} />
 
-        {/* 8. Authorized Brand Partnerships */}
+        {/* 9. Authorized Brand Partnerships */}
         <BrandsSection />
 
-        {/* 9. Interactive Booking Engine & Instant Estimate */}
+        {/* 10. Interactive Booking Engine & Instant Estimate */}
         <BookingSection
           initialService={selectedService}
           initialSuburb={selectedSuburb}
           initialNotes={quoteNotes}
         />
 
-        {/* 10. Frequently Asked Questions */}
+        {/* 11. Frequently Asked Questions */}
         <FaqSection />
       </main>
 

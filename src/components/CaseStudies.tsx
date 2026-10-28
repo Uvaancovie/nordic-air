@@ -96,78 +96,55 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
     ? CASE_STUDIES
     : CASE_STUDIES.filter((study) => study.category === filter);
 
+  const filterOptions: Array<{ id: 'all' | 'coastal' | 'residential' | 'commercial'; label: string }> = [
+    { id: 'all', label: 'All Work' },
+    { id: 'coastal', label: 'Coastal & Marine' },
+    { id: 'residential', label: 'Heritage & Homes' },
+    { id: 'commercial', label: 'Business & Office' },
+  ];
+
   return (
     <section id="case-studies" className="py-20 bg-white border-t border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="space-y-3 max-w-2xl">
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#1B5299] font-mono">
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#2563EB] font-mono">
                 PROVEN LOCAL WORK
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D32626]" />
-              <span className="text-xs font-semibold text-slate-500">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E11D2E]" />
+              <span className="text-xs font-semibold text-slate-600">
                 Greater Durban Installations
               </span>
             </div>
-            
-            <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#0A1322]">
+
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#2563EB]">
               Real Installations Across Durban
             </h2>
-            
+
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
               Every Durban suburb has unique climate challenges—from salt air corrosion along the coast to high-volume heat in heritage homes. Here is how our certified technicians deliver tidy, long-lasting cooling.
             </p>
           </div>
 
-          {/* Category Filter Tabs (Plain text buttons) */}
+          {/* Category Filter Tabs */}
           <div className="flex flex-wrap items-center gap-2">
-            <button
-              type="button"
-              onClick={() => setFilter('all')}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                filter === 'all'
-                  ? 'bg-[#1B5299] text-white shadow-xs'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-              }`}
-            >
-              All Work
-            </button>
-            <button
-              type="button"
-              onClick={() => setFilter('coastal')}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                filter === 'coastal'
-                  ? 'bg-[#1B5299] text-white shadow-xs'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-              }`}
-            >
-              Coastal & Marine
-            </button>
-            <button
-              type="button"
-              onClick={() => setFilter('residential')}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                filter === 'residential'
-                  ? 'bg-[#1B5299] text-white shadow-xs'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-              }`}
-            >
-              Heritage & Homes
-            </button>
-            <button
-              type="button"
-              onClick={() => setFilter('commercial')}
-              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
-                filter === 'commercial'
-                  ? 'bg-[#1B5299] text-white shadow-xs'
-                  : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-              }`}
-            >
-              Business & Office
-            </button>
+            {filterOptions.map((option) => (
+              <button
+                key={option.id}
+                type="button"
+                onClick={() => setFilter(option.id)}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
+                  filter === option.id
+                    ? 'bg-[#2563EB] text-white shadow-sm'
+                    : 'bg-[#2563EB]/5 text-slate-600 hover:bg-[#2563EB]/10 hover:text-[#2563EB]'
+                }`}
+              >
+                {option.label}
+              </button>
+            ))}
           </div>
         </div>
 
@@ -184,79 +161,79 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
             return (
               <div
                 key={study.id}
-                className="neo-card rounded-3xl bg-slate-50/70 border border-slate-200 p-7 sm:p-8 flex flex-col justify-between hover:shadow-lg transition-all duration-200"
+                className="surface-card rounded-3xl p-7 sm:p-8 flex flex-col justify-between hover:border-[#2563EB]/30 transition-all duration-200"
               >
                 <div>
                   {/* Top Badge & Number */}
-                  <div className="flex items-center justify-between pb-4 border-b border-slate-200/80 mb-5">
+                  <div className="flex items-center justify-between pb-4 border-b border-slate-200 mb-5">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold text-[#1B5299] bg-[#1B5299]/10 border border-[#1B5299]/20 px-2.5 py-0.5 rounded-full">
+                      <span className="text-xs font-bold text-[#2563EB] bg-[#2563EB]/10 border border-[#2563EB]/30 px-2.5 py-0.5 rounded-full">
                         {study.suburb}
                       </span>
-                      <span className="text-xs text-slate-500 font-medium">
+                      <span className="text-xs text-slate-600 font-medium">
                         — {study.categoryLabel}
                       </span>
                     </div>
-                    <span className="text-lg font-mono font-bold text-slate-300">
+                    <span className="text-lg font-mono font-bold text-slate-600">
                       {study.number}
                     </span>
                   </div>
 
                   {/* Title & Subtitle */}
-                  <h3 className="text-xl font-bold text-[#0A1322] tracking-tight leading-snug mb-1">
+                  <h3 className="text-xl font-bold text-[#2563EB] tracking-tight leading-snug mb-1">
                     {study.title}
                   </h3>
-                  <div className="text-xs text-slate-500 mb-6 font-medium">
+                  <div className="text-xs text-slate-600 mb-6 font-medium">
                     Property: {study.propertyType} · Hardware: {study.systemInstalled}
                   </div>
 
                   {/* Problem / Solution / Outcome Breakdown */}
-                  <div className="space-y-3.5 text-xs text-slate-700">
-                    <div className="bg-white p-3.5 rounded-xl border border-slate-200/80">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-1">
+                  <div className="space-y-3.5 text-xs text-slate-600">
+                    <div className="surface-inset p-3.5 rounded-xl">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-slate-600 block mb-1">
                         Durban Climate Challenge
                       </span>
-                      <p className="leading-relaxed text-slate-700">
+                      <p className="leading-relaxed text-slate-600">
                         {study.challenge}
                       </p>
                     </div>
 
-                    <div className="bg-white p-3.5 rounded-xl border border-slate-200/80">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#1B5299] block mb-1">
+                    <div className="surface-inset p-3.5 rounded-xl">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#2563EB] block mb-1">
                         Nordic Air Solution
                       </span>
-                      <p className="leading-relaxed text-slate-700">
+                      <p className="leading-relaxed text-slate-600">
                         {study.solution}
                       </p>
                     </div>
 
-                    <div className="bg-white p-3.5 rounded-xl border border-slate-200/80">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600 block mb-1">
+                    <div className="surface-inset p-3.5 rounded-xl">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 block mb-1">
                         Verified Outcome
                       </span>
-                      <p className="leading-relaxed text-slate-700">
+                      <p className="leading-relaxed text-slate-600">
                         {study.outcome}
                       </p>
                     </div>
                   </div>
 
                   {/* Key Metric Strip */}
-                  <div className="mt-5 p-3 rounded-xl bg-slate-100/90 border border-slate-200 flex items-center justify-between">
+                  <div className="mt-5 p-3 rounded-xl bg-[#F1F5FF] border border-slate-200 flex items-center justify-between">
                     <span className="text-xs font-medium text-slate-600">
                       {study.keyMetricLabel}
                     </span>
-                    <span className="text-xs font-bold font-mono text-[#0A1322]">
+                    <span className="text-xs font-bold font-mono text-[#2563EB]">
                       {study.keyMetric}
                     </span>
                   </div>
                 </div>
 
-                {/* Card Dual Action Buttons (Web Booking or Direct WhatsApp) */}
+                {/* Card Dual Action Buttons */}
                 <div className="mt-7 pt-5 border-t border-slate-200 flex flex-col sm:flex-row items-center gap-3">
                   <button
                     type="button"
                     onClick={() => onRequestSetup(study.title, study.suburbFullName)}
-                    className="w-full sm:flex-1 py-2.5 px-4 text-xs font-semibold text-white bg-[#1B5299] hover:bg-[#153e74] rounded-xl transition-colors cursor-pointer text-center"
+                    className="w-full sm:flex-1 py-2.5 px-4 text-xs font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl transition-colors cursor-pointer text-center"
                   >
                     Request Similar Setup
                   </button>
@@ -265,7 +242,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
                     href={whatsAppUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:flex-1 py-2.5 px-4 text-xs font-semibold text-[#0A1322] bg-white hover:bg-slate-100 border border-slate-200 rounded-xl transition-colors text-center inline-block"
+                    className="w-full sm:flex-1 py-2.5 px-4 text-xs font-semibold text-slate-700 bg-[#2563EB]/5 hover:bg-[#2563EB]/10 border border-slate-200 rounded-xl transition-colors text-center inline-block"
                   >
                     Discuss on WhatsApp
                   </a>
@@ -277,9 +254,9 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
         </div>
 
         {/* Suburb Inclusivity Banner */}
-        <div className="mt-12 p-6 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-12 p-6 rounded-2xl surface-card flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#0A1322]">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#2563EB]">
               Covering All Greater Durban Suburbs
             </div>
             <p className="text-xs text-slate-600">
@@ -288,7 +265,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
           </div>
           <a
             href="#booking"
-            className="px-5 py-2.5 rounded-xl text-xs font-semibold text-white bg-[#0A1322] hover:bg-[#162740] transition-colors whitespace-nowrap cursor-pointer"
+            className="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] transition-colors whitespace-nowrap cursor-pointer"
           >
             Check Availability In Your Area
           </a>
