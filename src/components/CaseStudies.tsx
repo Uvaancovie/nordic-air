@@ -104,23 +104,23 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
   ];
 
   return (
-    <section id="case-studies" className="py-20 bg-white border-t border-b border-slate-200">
+    <section id="case-studies" className="py-20 bg-[#FAFDFF] border-t border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="space-y-3 max-w-2xl">
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#2563EB] font-mono">
+              <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#082D43] font-mono">
                 PROVEN LOCAL WORK
               </span>
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E11D2E]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#2ED1DF]" />
               <span className="text-xs font-semibold text-slate-600">
                 Greater Durban Installations
               </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#2563EB]">
+            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#082D43]">
               Real Installations Across Durban
             </h2>
 
@@ -138,8 +138,8 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
                 onClick={() => setFilter(option.id)}
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                   filter === option.id
-                    ? 'bg-[#2563EB] text-white shadow-sm'
-                    : 'bg-[#2563EB]/5 text-slate-600 hover:bg-[#2563EB]/10 hover:text-[#2563EB]'
+                    ? 'bg-[#082D43] text-white shadow-sm'
+                    : 'bg-[#2ED1DF]/5 text-slate-600 hover:bg-[#2ED1DF]/10 hover:text-[#148CC7]'
                 }`}
               >
                 {option.label}
@@ -161,13 +161,13 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
             return (
               <div
                 key={study.id}
-                className="surface-card rounded-3xl p-7 sm:p-8 flex flex-col justify-between hover:border-[#2563EB]/30 transition-all duration-200"
+                className="surface-card rounded-3xl p-7 sm:p-8 flex flex-col justify-between hover:border-[#2ED1DF]/30 transition-all duration-200"
               >
                 <div>
                   {/* Top Badge & Number */}
                   <div className="flex items-center justify-between pb-4 border-b border-slate-200 mb-5">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold text-[#2563EB] bg-[#2563EB]/10 border border-[#2563EB]/30 px-2.5 py-0.5 rounded-full">
+                      <span className="text-xs font-bold text-[#082D43] bg-[#2ED1DF]/10 border border-[#2ED1DF]/30 px-2.5 py-0.5 rounded-full">
                         {study.suburb}
                       </span>
                       <span className="text-xs text-slate-600 font-medium">
@@ -180,7 +180,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
                   </div>
 
                   {/* Title & Subtitle */}
-                  <h3 className="text-xl font-bold text-[#2563EB] tracking-tight leading-snug mb-1">
+                  <h3 className="text-xl font-bold text-[#082D43] tracking-tight leading-snug mb-1">
                     {study.title}
                   </h3>
                   <div className="text-xs text-slate-600 mb-6 font-medium">
@@ -199,7 +199,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
                     </div>
 
                     <div className="surface-inset p-3.5 rounded-xl">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#2563EB] block mb-1">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#082D43] block mb-1">
                         Nordic Air Solution
                       </span>
                       <p className="leading-relaxed text-slate-600">
@@ -208,7 +208,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
                     </div>
 
                     <div className="surface-inset p-3.5 rounded-xl">
-                      <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-300 block mb-1">
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-[#082D43] block mb-1">
                         Verified Outcome
                       </span>
                       <p className="leading-relaxed text-slate-600">
@@ -218,11 +218,11 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
                   </div>
 
                   {/* Key Metric Strip */}
-                  <div className="mt-5 p-3 rounded-xl bg-[#F1F5FF] border border-slate-200 flex items-center justify-between">
+                  <div className="mt-5 p-3 rounded-xl bg-[#E9FAFC] border border-slate-200 flex items-center justify-between">
                     <span className="text-xs font-medium text-slate-600">
                       {study.keyMetricLabel}
                     </span>
-                    <span className="text-xs font-bold font-mono text-[#2563EB]">
+                    <span className="text-xs font-bold font-mono text-[#082D43]">
                       {study.keyMetric}
                     </span>
                   </div>
@@ -233,7 +233,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
                   <button
                     type="button"
                     onClick={() => onRequestSetup(study.title, study.suburbFullName)}
-                    className="w-full sm:flex-1 py-2.5 px-4 text-xs font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl transition-colors cursor-pointer text-center"
+                    className="w-full sm:flex-1 py-2.5 px-4 text-xs font-bold text-white bg-[#082D43] hover:bg-[#148CC7] rounded-xl transition-colors cursor-pointer text-center"
                   >
                     Request Similar Setup
                   </button>
@@ -242,7 +242,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
                     href={whatsAppUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full sm:flex-1 py-2.5 px-4 text-xs font-semibold text-slate-700 bg-[#2563EB]/5 hover:bg-[#2563EB]/10 border border-slate-200 rounded-xl transition-colors text-center inline-block"
+                    className="w-full sm:flex-1 py-2.5 px-4 text-xs font-semibold text-slate-700 bg-[#2ED1DF]/5 hover:bg-[#2ED1DF]/10 border border-slate-200 rounded-xl transition-colors text-center inline-block"
                   >
                     Discuss on WhatsApp
                   </a>
@@ -256,7 +256,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
         {/* Suburb Inclusivity Banner */}
         <div className="mt-12 p-6 rounded-2xl surface-card flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="space-y-1 text-center sm:text-left">
-            <div className="text-xs font-bold uppercase tracking-wider text-[#2563EB]">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#082D43]">
               Covering All Greater Durban Suburbs
             </div>
             <p className="text-xs text-slate-600">
@@ -265,7 +265,7 @@ export const CaseStudies: React.FC<CaseStudiesProps> = ({ onRequestSetup }) => {
           </div>
           <a
             href="#booking"
-            className="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] transition-colors whitespace-nowrap cursor-pointer"
+            className="px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-[#082D43] hover:bg-[#148CC7] transition-colors whitespace-nowrap cursor-pointer"
           >
             Check Availability In Your Area
           </a>

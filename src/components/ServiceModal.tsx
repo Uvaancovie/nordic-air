@@ -17,21 +17,21 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
         onClick={(e) => e.stopPropagation()}
       >
         {/* Modal Header */}
-        <div className="p-6 sm:p-8 bg-gradient-to-r from-[#EFF4FF] to-[#DCE7FF] text-[#2563EB] relative border-b border-slate-200">
+        <div className="p-6 sm:p-8 bg-gradient-to-r from-[#E9FAFC] to-[#CFF6F9] text-[#082D43] relative border-b border-slate-200">
           <button
             type="button"
             onClick={onClose}
-            className="absolute top-6 right-6 px-3 py-1 rounded-lg bg-[#2563EB]/10 hover:bg-[#2563EB]/20 text-xs font-medium text-[#2563EB] transition-colors cursor-pointer"
+            className="absolute top-6 right-6 px-3 py-1 rounded-lg bg-[#2ED1DF]/10 hover:bg-[#2ED1DF]/20 text-xs font-medium text-[#082D43] transition-colors cursor-pointer"
             aria-label="Close dialog"
           >
             Close
           </button>
 
-          <div className="text-xs font-semibold text-[#2563EB] uppercase tracking-[0.18em] mb-2">
+          <div className="text-xs font-semibold text-[#082D43] uppercase tracking-[0.18em] mb-2">
             <span>{service.category === 'residential' ? 'Home Service' : 'Business Service'}</span>
           </div>
 
-          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#2563EB]">
+          <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-[#082D43]">
             {service.title}
           </h3>
 
@@ -52,14 +52,14 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
           </div>
 
           {/* Key Deliverables */}
-          <div className="rounded-2xl bg-[#2563EB]/[0.04] p-5 border border-slate-200">
+          <div className="rounded-2xl bg-[#2ED1DF]/[0.04] p-5 border border-slate-200">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-600 mb-3">
               What Is Included
             </h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs text-slate-600">
               {service.features.map((feat, idx) => (
                 <div key={idx} className="flex items-start gap-2">
-                  <span className="text-[#2563EB] font-bold shrink-0">—</span>
+                  <span className="text-[#082D43] font-bold shrink-0">—</span>
                   <span>{feat}</span>
                 </div>
               ))}
@@ -68,8 +68,8 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
 
           {/* Practical Info */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="p-4 rounded-xl bg-[#2563EB]/10 border border-[#2563EB]/25">
-              <span className="text-[11px] font-semibold text-[#2563EB] uppercase tracking-wider block mb-1">
+            <div className="p-4 rounded-xl bg-[#2ED1DF]/10 border border-[#2ED1DF]/25">
+              <span className="text-[11px] font-semibold text-[#082D43] uppercase tracking-wider block mb-1">
                 Best Suited For
               </span>
               <span className="text-xs text-slate-700 font-medium">
@@ -77,8 +77,8 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
               </span>
             </div>
 
-            <div className="p-4 rounded-xl bg-emerald-400/5 border border-emerald-400/20">
-              <span className="text-[11px] font-semibold text-emerald-300 uppercase tracking-wider block mb-1">
+            <div className="p-4 rounded-xl bg-[#2ED1DF]/5 border border-[#2ED1DF]/30">
+              <span className="text-[11px] font-semibold text-[#082D43] uppercase tracking-wider block mb-1">
                 Warranty & Guarantee
               </span>
               <span className="text-xs text-slate-700 font-medium">
@@ -89,7 +89,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
         </div>
 
         {/* Modal Actions */}
-        <div className="p-6 bg-[#2563EB]/[0.04] border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="p-6 bg-[#2ED1DF]/[0.04] border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="text-xs text-slate-600">
             Free quotes · Durban licensed team · No surprises
           </div>
@@ -97,7 +97,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
             <button
               type="button"
               onClick={onClose}
-              className="w-1/2 sm:w-auto px-4 py-2.5 text-xs font-medium text-slate-600 bg-[#2563EB]/5 border border-slate-200 rounded-xl hover:bg-[#2563EB]/10 transition-colors cursor-pointer text-center"
+              className="w-1/2 sm:w-auto px-4 py-2.5 text-xs font-medium text-slate-600 bg-[#2ED1DF]/5 border border-slate-200 rounded-xl hover:bg-[#2ED1DF]/10 transition-colors cursor-pointer text-center"
             >
               Close
             </button>
@@ -107,7 +107,7 @@ export const ServiceModal: React.FC<ServiceModalProps> = ({ service, onClose, on
                 onClose();
                 onBook(service.title);
               }}
-              className="w-1/2 sm:w-auto px-5 py-2.5 text-xs font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-xl shadow-sm transition-colors cursor-pointer text-center"
+              className="w-1/2 sm:w-auto px-5 py-2.5 text-xs font-bold text-white bg-[#082D43] hover:bg-[#148CC7] rounded-xl shadow-sm transition-colors cursor-pointer text-center"
             >
               Book this Service
             </button>

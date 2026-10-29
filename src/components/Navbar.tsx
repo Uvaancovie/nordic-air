@@ -17,12 +17,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             <img
               src="/nordic-logo.jpeg"
               alt="Nordic Air logo"
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover shadow-sm ring-2 ring-[#E11D2E]/40 group-hover:ring-[#E11D2E] transition-all duration-200"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover shadow-sm ring-2 ring-[#2ED1DF]/50 group-hover:ring-[#2ED1DF] transition-all duration-200"
             />
             <div className="flex flex-col">
               <span className="text-xl sm:text-2xl font-extrabold tracking-tight leading-none">
-                <span className="text-[#2563EB]">NORDIC</span>
-                <span className="text-[#E11D2E] ml-1.5 sm:ml-2">AIR</span>
+                <span className="text-[#082D43]">NORDIC</span>
+                <span className="text-[#148CC7] ml-1.5 sm:ml-2">AIR</span>
               </span>
               <span className="hidden min-[390px]:block lg:hidden xl:block text-[8px] tracking-[0.18em] text-slate-600 font-semibold uppercase mt-1.5 sm:text-[9px] sm:tracking-[0.28em]">
                 Cool Comfort. Built Around You.
@@ -32,25 +32,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
           {/* Navigation Links */}
           <nav className="hidden lg:flex items-center gap-4 xl:gap-5 text-[13px] xl:text-sm font-medium text-slate-600">
-            <a href="#services" className="hover:text-[#2563EB] transition-colors whitespace-nowrap">
+            <a href="#services" className="hover:text-[#148CC7] transition-colors whitespace-nowrap">
               Services
             </a>
-            <a href="#sizing" className="hover:text-[#2563EB] transition-colors whitespace-nowrap">
+            <a href="#sizing" className="hover:text-[#148CC7] transition-colors whitespace-nowrap">
               AC Sizing
             </a>
-            <a href="#case-studies" className="hover:text-[#2563EB] transition-colors whitespace-nowrap">
+            <a href="#case-studies" className="hover:text-[#148CC7] transition-colors whitespace-nowrap">
               Case Studies
             </a>
-            <a href="#why-nordic" className="hidden xl:block hover:text-[#2563EB] transition-colors whitespace-nowrap">
+            <a href="#why-nordic" className="hidden xl:block hover:text-[#148CC7] transition-colors whitespace-nowrap">
               Why Us
             </a>
-            <a href="#areas" className="hover:text-[#2563EB] transition-colors whitespace-nowrap">
+            <a href="#areas" className="hover:text-[#148CC7] transition-colors whitespace-nowrap">
               Areas We Cover
             </a>
-            <a href="#guide" className="hidden xl:block hover:text-[#2563EB] transition-colors whitespace-nowrap">
+            <a href="#guide" className="hidden xl:block hover:text-[#148CC7] transition-colors whitespace-nowrap">
               Efficiency Guide
             </a>
-            <a href="#faq" className="hover:text-[#2563EB] transition-colors whitespace-nowrap">
+            <a href="#faq" className="hover:text-[#148CC7] transition-colors whitespace-nowrap">
               FAQ
             </a>
           </nav>
@@ -59,9 +59,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           <div className="hidden lg:flex items-center gap-4 shrink-0">
             <a
               href="tel:0319403388"
-              className="hidden min-[1400px]:flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold text-[#2563EB] bg-[#2563EB]/5 border border-slate-200 hover:border-[#2563EB]/30 hover:bg-[#2563EB]/10 transition-all whitespace-nowrap"
+              className="hidden min-[1400px]:flex items-center gap-2 px-3.5 py-2 rounded-lg text-xs font-semibold text-[#082D43] bg-[#2ED1DF]/5 border border-slate-200 hover:border-[#2ED1DF]/30 hover:bg-[#2ED1DF]/10 transition-all whitespace-nowrap"
             >
-              <span className="w-2 h-2 rounded-full bg-[#E11D2E] animate-soft-pulse" />
+              <span className="w-2 h-2 rounded-full bg-[#2ED1DF] animate-soft-pulse" />
               <span className="text-slate-600 font-normal">Call:</span>
               <span className="font-mono tracking-tight font-bold">031 940 3388</span>
             </a>
@@ -69,7 +69,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             <button
               type="button"
               onClick={() => onOpenBooking()}
-              className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-lg shadow-sm hover:shadow transition-all whitespace-nowrap cursor-pointer"
+              className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-white bg-[#082D43] hover:bg-[#148CC7] rounded-lg shadow-sm hover:shadow transition-all whitespace-nowrap cursor-pointer"
             >
               Get Free Quote
             </button>
@@ -80,14 +80,14 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             <button
               type="button"
               onClick={() => onOpenBooking()}
-              className="hidden min-[360px]:block px-2.5 py-1.5 text-xs font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-lg"
+              className="hidden min-[360px]:block px-2.5 py-1.5 text-xs font-bold text-white bg-[#082D43] hover:bg-[#148CC7] rounded-lg"
             >
               Quote
             </button>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="px-2.5 py-1.5 text-xs font-medium rounded-lg text-slate-700 bg-[#2563EB]/5 border border-slate-200 hover:bg-[#2563EB]/10"
+              className="px-2.5 py-1.5 text-xs font-medium rounded-lg text-slate-700 bg-[#2ED1DF]/5 border border-slate-200 hover:bg-[#2ED1DF]/10"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? 'Close' : 'Menu'}
@@ -103,49 +103,49 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             <a
               href="#services"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[#2563EB]"
+              className="py-1 hover:text-[#148CC7]"
             >
               Our Services
             </a>
             <a
               href="#sizing"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[#2563EB]"
+              className="py-1 hover:text-[#148CC7]"
             >
               AC Sizing Calculator
             </a>
             <a
               href="#case-studies"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[#2563EB]"
+              className="py-1 hover:text-[#148CC7]"
             >
               Case Studies
             </a>
             <a
               href="#why-nordic"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[#2563EB]"
+              className="py-1 hover:text-[#148CC7]"
             >
               Why Choose Us
             </a>
             <a
               href="#areas"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[#2563EB]"
+              className="py-1 hover:text-[#148CC7]"
             >
               Areas We Cover
             </a>
             <a
               href="#guide"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[#2563EB]"
+              className="py-1 hover:text-[#148CC7]"
             >
               Efficiency Guide
             </a>
             <a
               href="#faq"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[#2563EB]"
+              className="py-1 hover:text-[#148CC7]"
             >
               Frequently Asked Questions
             </a>
@@ -154,9 +154,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
           <div className="pt-4 border-t border-slate-200 flex flex-col gap-3">
             <a
               href="tel:0319403388"
-              className="flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold text-[#2563EB] bg-[#2563EB]/5 border border-slate-200"
+              className="flex items-center justify-center gap-2 py-2.5 rounded-lg text-sm font-semibold text-[#082D43] bg-[#2ED1DF]/5 border border-slate-200"
             >
-              <span className="w-2 h-2 rounded-full bg-[#E11D2E]" />
+              <span className="w-2 h-2 rounded-full bg-[#2ED1DF]" />
               <span>031 940 3388 (Emergency Help)</span>
             </a>
             <button
@@ -165,7 +165,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
                 setMobileMenuOpen(false);
                 onOpenBooking();
               }}
-              className="w-full py-2.5 text-sm font-bold text-white bg-[#2563EB] hover:bg-[#1D4ED8] rounded-lg text-center shadow-sm"
+              className="w-full py-2.5 text-sm font-bold text-white bg-[#082D43] hover:bg-[#148CC7] rounded-lg text-center shadow-sm"
             >
               Get a Free Quote
             </button>

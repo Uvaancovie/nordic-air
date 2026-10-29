@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { TrustMetrics } from './components/TrustMetrics';
 import { AboutSection } from './components/AboutSection';
 import { NavyFeatures } from './components/NavyFeatures';
 import { ServicesSection } from './components/ServicesSection';
@@ -56,9 +55,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#2563EB] font-sans antialiased selection:bg-[#E11D2E] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#FAFDFF] text-[#082D43] font-sans antialiased selection:bg-[#2ED1DF] selection:text-[#082D43]">
       {/* Top red brand accent bar */}
-      <div className="h-1.5 w-full bg-[#E11D2E]" aria-hidden="true" />
+      <div className="h-1.5 w-full bg-[#2ED1DF]" aria-hidden="true" />
 
       {/* Top Navigation */}
       <Navbar onOpenBooking={(s) => scrollToBooking(s)} />
@@ -70,9 +69,6 @@ export default function App() {
           onOpenBooking={(s, notes) => scrollToBooking(s, undefined, notes)}
           onEmergencyClick={handleEmergencyClick}
         />
-
-        {/* 2. Trust Metrics Strip */}
-        <TrustMetrics />
 
         {/* 3. Durban Climate Engineering & About Section */}
         <AboutSection onOpenBooking={(s) => scrollToBooking(s)} />
