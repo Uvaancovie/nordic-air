@@ -192,7 +192,7 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
   };
 
   return (
-    <section id="sizing" className="py-20 bg-[#FAFDFF] border-t border-slate-200">
+    <section id="sizing" className="py-20 bg-[#F8FBFF] border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
@@ -202,12 +202,12 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
               <img
                 src="/nordic-logo.jpeg"
                 alt="Nordic Air emblem"
-                className="w-12 h-12 rounded-full object-cover ring-2 ring-[#2ED1DF]/50 shadow-sm"
+                className="w-12 h-12 rounded-full object-cover ring-2 ring-[#39A9EC]/50 shadow-sm"
               />
               <div className="flex flex-col">
                 <span className="text-lg font-extrabold tracking-tight leading-none">
-                  <span className="text-[#082D43]">NORDIC</span>
-                  <span className="text-[#148CC7] ml-1.5">AIR</span>
+                  <span className="text-[#042B60]">NORDIC</span>
+                  <span className="text-[#088DD4] ml-1.5">AIR</span>
                 </span>
                 <span className="text-[9px] tracking-[0.24em] text-slate-600 font-semibold uppercase mt-1.5">
                   Cool Comfort. Built Around You.
@@ -216,10 +216,10 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
             </div>
 
             <div>
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#2ED1DF]/5 border border-slate-200 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600 mb-3">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#39A9EC]/5 border border-slate-200 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600 mb-3">
                 <span>Room Sizing Calculator</span>
               </div>
-              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#082D43] text-balance">
+              <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#042B60] text-balance">
                 Find the right aircon size for your room.
               </h2>
               <p className="text-sm sm:text-base text-slate-600 mt-2 max-w-2xl">
@@ -245,10 +245,10 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
               {/* Step 1 */}
               <div>
                 <div className="flex items-center gap-3 mb-1.5">
-                  <span className="w-7 h-7 rounded-full bg-[#2ED1DF]/15 border border-[#2ED1DF]/30 text-[#082D43] font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                  <span className="w-7 h-7 rounded-full bg-[#39A9EC]/15 border border-[#39A9EC]/30 text-[#042B60] font-mono text-xs font-bold flex items-center justify-center shrink-0">
                     1
                   </span>
-                  <h3 className="text-base font-bold text-[#082D43]">Enter the Room Size</h3>
+                  <h3 className="text-base font-bold text-[#042B60]">Enter the Room Size</h3>
                 </div>
                 <p className="text-xs text-slate-600 pl-10 mb-4">
                   Measure the inside length and width of the room in metres.
@@ -300,11 +300,11 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
                   </div>
                 </div>
 
-                <div className="mt-4 flex items-center justify-between rounded-xl bg-[#2ED1DF]/[0.04] border border-slate-200 px-4 py-3">
+                <div className="mt-4 flex items-center justify-between rounded-xl bg-[#39A9EC]/[0.04] border border-slate-200 px-4 py-3">
                   <span className="text-xs font-semibold uppercase tracking-wider text-slate-600">
                     Calculated floor area
                   </span>
-                  <span className="text-lg font-bold font-mono text-[#082D43] tabular-nums">
+                  <span className="text-lg font-bold font-mono text-[#042B60] tabular-nums">
                     {area.toFixed(2)} m²
                   </span>
                 </div>
@@ -313,10 +313,10 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
               {/* Step 2 */}
               <div>
                 <div className="flex items-center gap-3 mb-1.5">
-                  <span className="w-7 h-7 rounded-full bg-[#2ED1DF]/15 border border-[#2ED1DF]/30 text-[#082D43] font-mono text-xs font-bold flex items-center justify-center shrink-0">
+                  <span className="w-7 h-7 rounded-full bg-[#39A9EC]/15 border border-[#39A9EC]/30 text-[#042B60] font-mono text-xs font-bold flex items-center justify-center shrink-0">
                     2
                   </span>
-                  <h3 className="text-base font-bold text-[#082D43]">Select the Room Condition</h3>
+                  <h3 className="text-base font-bold text-[#042B60]">Select the Room Condition</h3>
                 </div>
                 <p className="text-xs text-slate-600 pl-10 mb-4">
                   Choose the one option that best describes the room.
@@ -334,20 +334,20 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
                         onClick={() => setCondition(item.id)}
                         className={`w-full flex items-start gap-3 p-4 rounded-2xl border text-left transition-colors cursor-pointer ${
                           isSelected
-                            ? 'bg-[#2ED1DF]/10 border-[#2ED1DF]/50'
-                            : 'bg-[#2ED1DF]/[0.03] border-slate-200 hover:bg-[#2ED1DF]/[0.06]'
+                            ? 'bg-[#39A9EC]/10 border-[#39A9EC]/50'
+                            : 'bg-[#39A9EC]/[0.03] border-slate-200 hover:bg-[#39A9EC]/[0.06]'
                         }`}
                       >
                         <span
                           className={`mt-0.5 w-4 h-4 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                            isSelected ? 'border-[#148CC7]' : 'border-slate-300'
+                            isSelected ? 'border-[#088DD4]' : 'border-slate-300'
                           }`}
                           aria-hidden="true"
                         >
-                          {isSelected && <span className="w-2 h-2 rounded-full bg-[#082D43]" />}
+                          {isSelected && <span className="w-2 h-2 rounded-full bg-[#042B60]" />}
                         </span>
                         <span>
-                          <span className="block text-sm font-semibold text-[#082D43]">{item.title}</span>
+                          <span className="block text-sm font-semibold text-[#042B60]">{item.title}</span>
                           <span className="block text-xs text-slate-600 mt-0.5 leading-relaxed">{item.description}</span>
                         </span>
                       </button>
@@ -365,7 +365,7 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
               <div>
                 <button
                   type="submit"
-                  className="w-full py-4 px-6 rounded-2xl bg-[#082D43] hover:bg-[#148CC7] text-sm font-extrabold uppercase tracking-wide text-white shadow-[0_18px_40px_-20px_rgba(8,45,67,0.35)] transition-colors cursor-pointer"
+                  className="w-full py-4 px-6 rounded-2xl bg-[#042B60] hover:bg-[#088DD4] text-sm font-extrabold uppercase tracking-wide text-white shadow-[0_18px_40px_-20px_rgba(4, 43, 96,0.35)] transition-colors cursor-pointer"
                 >
                   Calculate BTU Size
                 </button>
@@ -382,7 +382,7 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
 
             {/* Common Room Sizes */}
             <div className="surface-card rounded-3xl p-6 sm:p-7">
-              <h3 className="text-base font-bold text-[#082D43]">Common Room Size Examples</h3>
+              <h3 className="text-base font-bold text-[#042B60]">Common Room Size Examples</h3>
               <p className="text-xs text-slate-600 mt-1 mb-4">
                 These examples give you a quick idea of common air-conditioner sizes.
               </p>
@@ -394,8 +394,8 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
                   { btu: '18,000 BTU', area: 'Rooms up to 36 m²' },
                   { btu: '24,000 BTU', area: 'Rooms up to 48 m²' },
                 ].map((item) => (
-                  <div key={item.btu} className="p-3.5 rounded-xl bg-[#2ED1DF]/[0.04] border border-slate-200">
-                    <span className="block text-sm font-bold font-mono text-[#082D43]">{item.btu}</span>
+                  <div key={item.btu} className="p-3.5 rounded-xl bg-[#39A9EC]/[0.04] border border-slate-200">
+                    <span className="block text-sm font-bold font-mono text-[#042B60]">{item.btu}</span>
                     <span className="block text-[11px] text-slate-600 mt-0.5">{item.area}</span>
                   </div>
                 ))}
@@ -404,7 +404,7 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
 
             {/* How to Measure */}
             <div className="surface-card rounded-3xl p-6 sm:p-7">
-              <h3 className="text-base font-bold text-[#082D43]">How to Measure</h3>
+              <h3 className="text-base font-bold text-[#042B60]">How to Measure</h3>
               <ol className="mt-3 space-y-2.5">
                 {[
                   'Measure the room from one inside wall to the opposite inside wall.',
@@ -413,7 +413,7 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
                   'Press Calculate BTU Size to receive the recommended capacity.',
                 ].map((step, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-xs text-slate-600">
-                    <span className="w-5 h-5 rounded-full bg-[#2ED1DF]/5 border border-slate-200 text-[10px] font-mono font-bold text-slate-600 flex items-center justify-center shrink-0">
+                    <span className="w-5 h-5 rounded-full bg-[#39A9EC]/5 border border-slate-200 text-[10px] font-mono font-bold text-slate-600 flex items-center justify-center shrink-0">
                       {idx + 1}
                     </span>
                     <span className="leading-relaxed">{step}</span>
@@ -423,8 +423,8 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
             </div>
 
             {/* Disclaimer */}
-            <div className="p-5 rounded-2xl bg-[#E9FAFC] border border-slate-200">
-              <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-[#082D43] mb-1.5">
+            <div className="p-5 rounded-2xl bg-[#E7F2FC] border border-slate-200">
+              <span className="block text-[10px] font-bold uppercase tracking-[0.18em] text-[#042B60] mb-1.5">
                 Please note
               </span>
               <p className="text-[11px] text-slate-600 leading-relaxed">
@@ -437,7 +437,7 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
 
         {/* Result */}
         {result && (
-          <div ref={resultRef} className="mt-8 relative overflow-hidden surface-card rounded-3xl p-6 sm:p-8 border-[#2ED1DF]/30">
+          <div ref={resultRef} className="mt-8 relative overflow-hidden surface-card rounded-3xl p-6 sm:p-8 border-[#39A9EC]/30">
             <img
               src="/nordic-logo.jpeg"
               alt=""
@@ -447,11 +447,11 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
 
             <div className="relative flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
               <div>
-                <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#082D43]">
+                <span className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#042B60]">
                   Recommended capacity
                 </span>
                 <div className="mt-2 flex flex-wrap items-end gap-x-4 gap-y-1">
-                  <span className="text-5xl sm:text-6xl font-extrabold tracking-[-0.04em] text-[#082D43] leading-none">
+                  <span className="text-5xl sm:text-6xl font-extrabold tracking-[-0.04em] text-[#042B60] leading-none">
                     {result.btu.toLocaleString('en-US')}
                   </span>
                   <span className="text-lg font-bold text-slate-600">BTU</span>
@@ -461,7 +461,7 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
                 </div>
                 <p className="text-sm text-slate-600 mt-3 max-w-xl">
                   For a {result.area.toFixed(2)} m² room with {selectedCondition.title.toLowerCase()}, we recommend a{' '}
-                  <span className="text-[#082D43] font-semibold">{formatBtu(result.btu)}</span> inverter unit.
+                  <span className="text-[#042B60] font-semibold">{formatBtu(result.btu)}</span> inverter unit.
                 </p>
               </div>
 
@@ -469,7 +469,7 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
                 <button
                   type="button"
                   onClick={addToBooking}
-                  className="w-full lg:w-72 py-4 px-6 rounded-2xl bg-[#082D43] hover:bg-[#148CC7] text-left transition-colors cursor-pointer shadow-[0_18px_40px_-20px_rgba(8,45,67,0.35)]"
+                  className="w-full lg:w-72 py-4 px-6 rounded-2xl bg-[#042B60] hover:bg-[#088DD4] text-left transition-colors cursor-pointer shadow-[0_18px_40px_-20px_rgba(4, 43, 96,0.35)]"
                 >
                   <span className="block text-sm font-extrabold uppercase tracking-wide text-white">
                     Add {formatBtu(result.btu)} to form
@@ -481,7 +481,7 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
                 <button
                   type="button"
                   onClick={startAgain}
-                  className="w-full lg:w-72 py-3 px-6 rounded-2xl bg-[#2ED1DF]/5 hover:bg-[#2ED1DF]/10 border border-slate-200 text-xs font-semibold text-slate-700 transition-colors cursor-pointer"
+                  className="w-full lg:w-72 py-3 px-6 rounded-2xl bg-[#39A9EC]/5 hover:bg-[#39A9EC]/10 border border-slate-200 text-xs font-semibold text-slate-700 transition-colors cursor-pointer"
                 >
                   Start Again
                 </button>
@@ -490,23 +490,23 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
 
             {/* Result facts */}
             <div className="relative grid grid-cols-2 sm:grid-cols-4 gap-3 mt-7">
-              <div className="p-3.5 rounded-xl bg-[#2ED1DF]/[0.04] border border-slate-200">
+              <div className="p-3.5 rounded-xl bg-[#39A9EC]/[0.04] border border-slate-200">
                 <span className="block text-[10px] uppercase tracking-wider text-slate-500">Floor area</span>
-                <span className="block text-sm font-bold font-mono text-[#082D43] mt-0.5">{result.area.toFixed(2)} m²</span>
+                <span className="block text-sm font-bold font-mono text-[#042B60] mt-0.5">{result.area.toFixed(2)} m²</span>
               </div>
-              <div className="p-3.5 rounded-xl bg-[#2ED1DF]/[0.04] border border-slate-200">
+              <div className="p-3.5 rounded-xl bg-[#39A9EC]/[0.04] border border-slate-200">
                 <span className="block text-[10px] uppercase tracking-wider text-slate-500">Room condition</span>
-                <span className="block text-xs font-semibold text-[#082D43] mt-1 leading-snug">{selectedCondition.title}</span>
+                <span className="block text-xs font-semibold text-[#042B60] mt-1 leading-snug">{selectedCondition.title}</span>
               </div>
-              <div className="p-3.5 rounded-xl bg-[#2ED1DF]/[0.04] border border-slate-200">
+              <div className="p-3.5 rounded-xl bg-[#39A9EC]/[0.04] border border-slate-200">
                 <span className="block text-[10px] uppercase tracking-wider text-slate-500">Covers up to</span>
-                <span className="block text-sm font-bold font-mono text-[#082D43] mt-0.5">
+                <span className="block text-sm font-bold font-mono text-[#042B60] mt-0.5">
                   {COVERAGE_BY_BTU[result.btu] ?? '120'} m²
                 </span>
               </div>
-              <div className="p-3.5 rounded-xl bg-[#2ED1DF]/[0.04] border border-slate-200">
+              <div className="p-3.5 rounded-xl bg-[#39A9EC]/[0.04] border border-slate-200">
                 <span className="block text-[10px] uppercase tracking-wider text-slate-500">System type</span>
-                <span className="block text-sm font-bold text-[#082D43] mt-0.5">
+                <span className="block text-sm font-bold text-[#042B60] mt-0.5">
                   {result.btu >= 30000 ? 'Multi-split / cassette' : 'Single split'}
                 </span>
               </div>
@@ -522,7 +522,7 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
             <div className="relative mt-7">
               <div className="flex items-end justify-between gap-4 mb-3">
                 <div>
-                  <h3 className="text-base font-bold text-[#082D43]">Recommended units</h3>
+                  <h3 className="text-base font-bold text-[#042B60]">Recommended units</h3>
                   <p className="text-xs text-slate-600 mt-0.5">
                     Trusted brands we supply and install, matched to your calculated capacity.
                   </p>
@@ -538,16 +538,16 @@ export const SizingCalculator: React.FC<SizingCalculatorProps> = ({ onAddToBooki
                     key={`${unit.brand}-${unit.model}`}
                     className={`p-4 rounded-2xl border ${
                       idx === 0
-                        ? 'bg-[#2ED1DF]/10 border-[#2ED1DF]/30'
-                        : 'bg-[#2ED1DF]/[0.04] border-slate-200'
+                        ? 'bg-[#39A9EC]/10 border-[#39A9EC]/30'
+                        : 'bg-[#39A9EC]/[0.04] border-slate-200'
                     }`}
                   >
                     <div className="flex items-center justify-between gap-2">
-                      <span className="text-sm font-bold font-mono text-[#082D43]">{unit.brand}</span>
+                      <span className="text-sm font-bold font-mono text-[#042B60]">{unit.brand}</span>
                       <span className={`text-[9px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
                         idx === 0
-                          ? 'bg-[#2ED1DF]/20 text-[#082D43]'
-                          : 'bg-[#2ED1DF]/5 text-slate-600 border border-slate-200'
+                          ? 'bg-[#39A9EC]/20 text-[#042B60]'
+                          : 'bg-[#39A9EC]/5 text-slate-600 border border-slate-200'
                       }`}>
                         {unit.tag}
                       </span>

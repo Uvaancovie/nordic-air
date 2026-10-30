@@ -77,7 +77,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
   };
 
   return (
-    <section id="booking" className="py-20 bg-[#F6FDFE]">
+    <section id="booking" className="py-20 bg-[#F3F9FF]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Outer Split Card */}
@@ -85,27 +85,27 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12">
 
             {/* Left Column: Contact Block */}
-            <div className="lg:col-span-5 bg-white flex flex-col justify-between p-8 sm:p-10 text-[#082D43] min-h-[440px] border-b lg:border-b-0 lg:border-r border-slate-200">
+            <div className="lg:col-span-5 bg-white flex flex-col justify-between p-8 sm:p-10 text-[#042B60] min-h-[440px] border-b lg:border-b-0 lg:border-r border-slate-200">
 
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="flex flex-col">
                     <span className="text-lg font-extrabold tracking-tight leading-none">
-                      <span className="text-[#082D43]">NORDIC</span>
-                      <span className="text-[#148CC7] ml-1.5">AIR</span>
+                      <span className="text-[#042B60]">NORDIC</span>
+                      <span className="text-[#088DD4] ml-1.5">AIR</span>
                     </span>
                     <span className="text-[9px] tracking-[0.24em] text-slate-600 font-semibold uppercase mt-1.5">
                       Durban Aircon Team
                     </span>
                   </div>
 
-                  <span className="text-xs text-slate-600 bg-[#2ED1DF]/5 px-3 py-1 rounded-full border border-slate-200">
+                  <span className="text-xs text-slate-600 bg-[#39A9EC]/5 px-3 py-1 rounded-full border border-slate-200">
                     On Standby
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#082D43] leading-tight">
+                  <h3 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#042B60] leading-tight">
                     Book Your Service
                   </h3>
                   <p className="text-sm text-slate-600 mt-2 leading-relaxed">
@@ -119,12 +119,12 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                 <div className="space-y-2">
                   <a
                     href="tel:0319403388"
-                    className="block p-3.5 rounded-2xl bg-[#2ED1DF]/5 border border-slate-200 hover:bg-[#2ED1DF]/10 transition-colors"
+                    className="block p-3.5 rounded-2xl bg-[#39A9EC]/5 border border-slate-200 hover:bg-[#39A9EC]/10 transition-colors"
                   >
                     <span className="block text-[10px] text-slate-600 uppercase tracking-wider">
                       Emergency Repair Line (24/7)
                     </span>
-                    <span className="font-bold text-base text-[#082D43] font-mono mt-0.5 block">
+                    <span className="font-bold text-base text-[#042B60] font-mono mt-0.5 block">
                       031 940 3388
                     </span>
                   </a>
@@ -138,12 +138,12 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                     })}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block p-3.5 rounded-2xl bg-[#2ED1DF]/15 border border-[#2ED1DF]/30 hover:bg-[#2ED1DF]/25 transition-colors"
+                    className="block p-3.5 rounded-2xl bg-[#39A9EC]/15 border border-[#39A9EC]/30 hover:bg-[#39A9EC]/25 transition-colors"
                   >
-                    <span className="block text-[10px] text-[#082D43] uppercase tracking-wider font-semibold">
+                    <span className="block text-[10px] text-[#042B60] uppercase tracking-wider font-semibold">
                       Direct WhatsApp Dispatch
                     </span>
-                    <span className="font-bold text-sm text-[#082D43] mt-0.5 block">
+                    <span className="font-bold text-sm text-[#042B60] mt-0.5 block">
                       Chat With On-Call Tech
                     </span>
                   </a>
@@ -172,17 +172,17 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
 
               {submitted ? (
                 <div className="text-center py-8 space-y-4">
-                  <div className="w-12 h-12 rounded-full bg-[#2ED1DF]/10 text-[#082D43] font-bold text-lg flex items-center justify-center mx-auto border border-[#2ED1DF]/30">
+                  <div className="w-12 h-12 rounded-full bg-[#39A9EC]/10 text-[#042B60] font-bold text-lg flex items-center justify-center mx-auto border border-[#39A9EC]/30">
                     OK
                   </div>
-                  <h3 className="text-2xl font-extrabold text-[#082D43] tracking-tight">
+                  <h3 className="text-2xl font-extrabold text-[#042B60] tracking-tight">
                     Thank You, {formData.fullName}
                   </h3>
                   <p className="text-sm text-slate-600 max-w-md mx-auto">
                     We received your request. Reference{' '}
-                    <span className="font-mono font-semibold text-[#082D43]">#NA-{Math.floor(1000 + Math.random() * 9000)}</span>.
+                    <span className="font-mono font-semibold text-[#042B60]">#NA-{Math.floor(1000 + Math.random() * 9000)}</span>.
                     Our team will call you at{' '}
-                    <span className="font-mono font-semibold text-[#082D43]">{formData.phone}</span> shortly to confirm your booking.
+                    <span className="font-mono font-semibold text-[#042B60]">{formData.phone}</span> shortly to confirm your booking.
                   </p>
 
                   {formData.isUrgent && (
@@ -195,7 +195,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                     <button
                       type="button"
                       onClick={handleReset}
-                      className="px-5 py-2.5 text-xs font-semibold text-slate-700 bg-[#2ED1DF]/5 hover:bg-[#2ED1DF]/10 border border-slate-200 rounded-xl transition-colors cursor-pointer w-full sm:w-auto"
+                      className="px-5 py-2.5 text-xs font-semibold text-slate-700 bg-[#39A9EC]/5 hover:bg-[#39A9EC]/10 border border-slate-200 rounded-xl transition-colors cursor-pointer w-full sm:w-auto"
                     >
                       Book Another Visit
                     </button>
@@ -211,7 +211,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                       })}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-5 py-2.5 text-xs font-bold text-white bg-[#082D43] hover:bg-[#148CC7] rounded-xl transition-colors cursor-pointer w-full sm:w-auto text-center"
+                      className="px-5 py-2.5 text-xs font-bold text-white bg-[#042B60] hover:bg-[#088DD4] rounded-xl transition-colors cursor-pointer w-full sm:w-auto text-center"
                     >
                       Follow Up on WhatsApp
                     </a>
@@ -336,18 +336,18 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                   </div>
 
                   {/* Urgent toggle */}
-                  <div className="p-3 rounded-xl bg-[#2ED1DF]/[0.04] border border-slate-200 flex items-center justify-between">
+                  <div className="p-3 rounded-xl bg-[#39A9EC]/[0.04] border border-slate-200 flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                       <input
                         type="checkbox"
                         id="urgent-dispatch"
                         checked={formData.isUrgent}
                         onChange={(e) => setFormData({ ...formData, isUrgent: e.target.checked })}
-                        className="w-4 h-4 rounded text-[#148CC7] focus:ring-[#2ED1DF] border-slate-300 accent-[#148CC7] cursor-pointer"
+                        className="w-4 h-4 rounded text-[#088DD4] focus:ring-[#39A9EC] border-slate-300 accent-[#088DD4] cursor-pointer"
                       />
                       <label htmlFor="urgent-dispatch" className="text-xs font-semibold text-slate-700 cursor-pointer">
                         Need help urgently today?{' '}
-                        <span className="text-[11px] text-[#148CC7] font-bold">
+                        <span className="text-[11px] text-[#088DD4] font-bold">
                           (Same-Day Priority)
                         </span>
                       </label>
@@ -379,7 +379,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                       <button
                         type="submit"
                         disabled={loading}
-                        className="w-full py-3.5 px-5 text-sm font-bold text-white bg-[#082D43] hover:bg-[#148CC7] rounded-xl shadow-sm transition-all cursor-pointer disabled:opacity-50 text-center"
+                        className="w-full py-3.5 px-5 text-sm font-bold text-white bg-[#042B60] hover:bg-[#088DD4] rounded-xl shadow-sm transition-all cursor-pointer disabled:opacity-50 text-center"
                       >
                         {loading ? 'Sending...' : 'Send Online Request'}
                       </button>
@@ -395,7 +395,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                         })}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-full py-3.5 px-5 text-sm font-semibold text-slate-700 bg-[#2ED1DF]/5 hover:bg-[#2ED1DF]/10 border border-slate-200 rounded-xl transition-all text-center inline-block"
+                        className="w-full py-3.5 px-5 text-sm font-semibold text-slate-700 bg-[#39A9EC]/5 hover:bg-[#39A9EC]/10 border border-slate-200 rounded-xl transition-all text-center inline-block"
                       >
                         Send via WhatsApp Now
                       </a>

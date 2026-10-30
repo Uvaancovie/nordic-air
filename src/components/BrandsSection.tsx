@@ -11,15 +11,15 @@ export const BrandsSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-14 bg-[#FAFDFF] border-y border-slate-200">
+    <section className="py-14 bg-[#F8FBFF] border-y border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
 
           <div className="md:w-1/3 text-center md:text-left">
-            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#082D43] block mb-1">
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#042B60] block mb-1">
               Authorized Partner
             </span>
-            <h3 className="text-xl font-bold text-[#082D43] tracking-tight">
+            <h3 className="text-xl font-bold text-[#042B60] tracking-tight">
               Brands We Install &amp; Fix
             </h3>
             <p className="text-xs text-slate-600 mt-1 max-w-sm">
@@ -31,7 +31,7 @@ export const BrandsSection: React.FC = () => {
             {brands.map((b, idx) => (
               <div
                 key={idx}
-                className="p-3.5 rounded-xl bg-[#2ED1DF]/[0.04] border border-slate-200 hover:border-[#2ED1DF]/30 transition-colors flex flex-col justify-center text-center sm:text-left"
+                className="p-3.5 rounded-xl bg-[#39A9EC]/[0.04] border border-slate-200 hover:border-[#39A9EC]/30 transition-colors flex flex-col justify-center text-center sm:text-left"
               >
                 <span className="text-sm font-bold text-slate-700 tracking-tight font-mono">
                   {b.name}

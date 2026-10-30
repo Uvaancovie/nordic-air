@@ -255,20 +255,20 @@ export const ServiceAreas: React.FC<ServiceAreasProps> = ({ onSelectArea }) => {
   }, [allSuburbs, selectedRegion, searchQuery]);
 
   return (
-    <section id="areas" className="py-20 bg-[#FAFDFF]">
+    <section id="areas" className="py-20 bg-[#F8FBFF]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-10">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#2ED1DF]/5 border border-slate-200 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600 mb-3">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#39A9EC]/5 border border-slate-200 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600 mb-3">
             <span>Where We Work</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#082D43]">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#042B60]">
             All Durban Suburbs Covered
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-2">
             We provide fast, reliable air conditioning services across every neighbourhood in Greater Durban. From the North Coast to the South Coast, Central Durban, and Highway communities, our mobile teams are ready. Call{' '}
-            <a href="tel:0319403388" className="font-semibold text-[#082D43] hover:underline">
+            <a href="tel:0319403388" className="font-semibold text-[#042B60] hover:underline">
               (031) 940-3388
             </a>{' '}
             anytime.
@@ -286,8 +286,8 @@ export const ServiceAreas: React.FC<ServiceAreasProps> = ({ onSelectArea }) => {
                 onClick={() => setSelectedRegion(reg)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors cursor-pointer ${
                   selectedRegion === reg
-                    ? 'bg-[#082D43] text-white shadow-sm'
-                    : 'bg-[#2ED1DF]/5 text-slate-600 hover:bg-[#2ED1DF]/10 hover:text-[#148CC7]'
+                    ? 'bg-[#042B60] text-white shadow-sm'
+                    : 'bg-[#39A9EC]/5 text-slate-600 hover:bg-[#39A9EC]/10 hover:text-[#088DD4]'
                 }`}
               >
                 {reg} {reg === 'All' ? `(${allSuburbs.length})` : ''}
@@ -320,22 +320,22 @@ export const ServiceAreas: React.FC<ServiceAreasProps> = ({ onSelectArea }) => {
 
             {/* Stylized Coastal Water & Land Outline SVG */}
             <svg
-              className="absolute inset-0 w-full h-full pointer-events-none text-[#2ED1DF]/30"
+              className="absolute inset-0 w-full h-full pointer-events-none text-[#39A9EC]/30"
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
               fill="none"
             >
               <path
                 d="M 60,0 C 65,30 55,60 70,100 L 100,100 L 100,0 Z"
-                fill="rgba(8, 45, 67, 0.12)"
+                fill="rgba(4, 43, 96, 0.12)"
               />
               <path
                 d="M 60,0 C 65,30 55,60 70,100"
-                stroke="rgba(140, 240, 242, 0.5)"
+                stroke="rgba(169, 221, 251, 0.5)"
                 strokeWidth="0.8"
                 strokeDasharray="2 2"
               />
-              <text x="75" y="90" fontSize="3.5" fill="#2ED1DF" opacity="0.5" fontFamily="sans-serif">
+              <text x="75" y="90" fontSize="3.5" fill="#39A9EC" opacity="0.5" fontFamily="sans-serif">
                 INDIAN OCEAN
               </text>
             </svg>
@@ -343,7 +343,7 @@ export const ServiceAreas: React.FC<ServiceAreasProps> = ({ onSelectArea }) => {
             {/* Top map bar */}
             <div className="relative flex items-center justify-between text-xs text-slate-600 pb-4 border-b border-slate-200">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#2ED1DF] animate-pulse" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#39A9EC] animate-pulse" />
                 <span className="font-medium text-slate-600">Durban City-Wide Coverage</span>
               </div>
               <span className="text-[11px] font-mono text-slate-600">
@@ -366,19 +366,19 @@ export const ServiceAreas: React.FC<ServiceAreasProps> = ({ onSelectArea }) => {
                   >
                     <div className="relative flex flex-col items-center">
                       {isSelected && (
-                        <span className="absolute -top-1 w-6 h-6 rounded-full bg-[#2ED1DF]/30 animate-ping" />
+                        <span className="absolute -top-1 w-6 h-6 rounded-full bg-[#39A9EC]/30 animate-ping" />
                       )}
 
                       <div
                         className={`w-3.5 h-3.5 rounded-full transition-transform duration-200 group-hover:scale-125 ${
                           isSelected
-                            ? 'bg-[#082D43] ring-4 ring-[#2ED1DF]/30'
-                            : 'bg-[#2ED1DF]/20 border-2 border-slate-400'
+                            ? 'bg-[#042B60] ring-4 ring-[#39A9EC]/30'
+                            : 'bg-[#39A9EC]/20 border-2 border-slate-400'
                         }`}
                       />
 
                       {isSelected && (
-                        <span className="text-[10px] font-semibold mt-1 px-2 py-0.5 rounded-md whitespace-nowrap shadow-sm bg-[#E9FAFC] text-[#082D43]">
+                        <span className="text-[10px] font-semibold mt-1 px-2 py-0.5 rounded-md whitespace-nowrap shadow-sm bg-[#E7F2FC] text-[#042B60]">
                           {sub.name.split(',')[0]}
                         </span>
                       )}
@@ -391,10 +391,10 @@ export const ServiceAreas: React.FC<ServiceAreasProps> = ({ onSelectArea }) => {
             {/* Selected Area Info Box */}
             <div className="relative surface-card rounded-2xl p-5 max-w-sm ml-auto">
               <div>
-                <span className="text-[10px] uppercase tracking-wider font-bold text-[#082D43]">
+                <span className="text-[10px] uppercase tracking-wider font-bold text-[#042B60]">
                   {activeSuburb.region}
                 </span>
-                <h4 className="text-base font-bold text-[#082D43] leading-tight mt-0.5">
+                <h4 className="text-base font-bold text-[#042B60] leading-tight mt-0.5">
                   {activeSuburb.name}
                 </h4>
               </div>
@@ -406,13 +406,13 @@ export const ServiceAreas: React.FC<ServiceAreasProps> = ({ onSelectArea }) => {
               <div className="grid grid-cols-2 gap-2 mt-4 pt-3 border-t border-slate-200 text-xs">
                 <div>
                   <span className="text-slate-600 block text-[10px] uppercase">Average Travel</span>
-                  <span className="font-semibold text-[#082D43] font-mono">
+                  <span className="font-semibold text-[#042B60] font-mono">
                     {activeSuburb.responseTime}
                   </span>
                 </div>
                 <div>
                   <span className="text-slate-600 block text-[10px] uppercase">Mobile Squad</span>
-                  <span className="font-semibold text-[#082D43] font-mono">
+                  <span className="font-semibold text-[#042B60] font-mono">
                     {activeSuburb.unitsOnCall} Van{activeSuburb.unitsOnCall > 1 ? 's' : ''} on Duty
                   </span>
                 </div>
@@ -421,7 +421,7 @@ export const ServiceAreas: React.FC<ServiceAreasProps> = ({ onSelectArea }) => {
               <button
                 type="button"
                 onClick={() => onSelectArea(activeSuburb.name)}
-                className="mt-4 w-full py-2 px-3 text-xs font-bold text-white bg-[#082D43] hover:bg-[#148CC7] rounded-xl transition-colors cursor-pointer shadow-sm text-center"
+                className="mt-4 w-full py-2 px-3 text-xs font-bold text-white bg-[#042B60] hover:bg-[#088DD4] rounded-xl transition-colors cursor-pointer shadow-sm text-center"
               >
                 Book Service in {activeSuburb.name.split(',')[0]}
               </button>
@@ -441,7 +441,7 @@ export const ServiceAreas: React.FC<ServiceAreasProps> = ({ onSelectArea }) => {
             {/* Scrollable container for all suburbs */}
             <div className="max-h-[520px] overflow-y-auto pr-1 space-y-2.5">
               {filteredSuburbs.length === 0 ? (
-                <div className="p-8 text-center text-xs text-slate-600 bg-[#2ED1DF]/5 rounded-2xl border border-slate-200">
+                <div className="p-8 text-center text-xs text-slate-600 bg-[#39A9EC]/5 rounded-2xl border border-slate-200">
                   No suburb matches &quot;{searchQuery}&quot;. We cover all areas across Greater Durban. Call us at (031) 940-3388.
                 </div>
               ) : (
@@ -453,8 +453,8 @@ export const ServiceAreas: React.FC<ServiceAreasProps> = ({ onSelectArea }) => {
                       onClick={() => setActiveSuburb(sub)}
                       className={`p-3.5 rounded-2xl border transition-all duration-200 cursor-pointer flex items-center justify-between ${
                         isSelected
-                          ? 'bg-[#2ED1DF]/10 border-[#2ED1DF]/50 shadow-sm'
-                          : 'surface-inset hover:bg-[#2ED1DF]/[0.07]'
+                          ? 'bg-[#39A9EC]/10 border-[#39A9EC]/50 shadow-sm'
+                          : 'surface-inset hover:bg-[#39A9EC]/[0.07]'
                       }`}
                     >
                       <div className="flex items-center gap-3">
@@ -465,7 +465,7 @@ export const ServiceAreas: React.FC<ServiceAreasProps> = ({ onSelectArea }) => {
                           <div className="flex items-center gap-2">
                             <h4
                               className={`text-xs sm:text-sm font-semibold tracking-tight ${
-                                isSelected ? 'text-[#082D43]' : 'text-[#082D43]'
+                                isSelected ? 'text-[#042B60]' : 'text-[#042B60]'
                               }`}
                             >
                               {sub.name}
@@ -489,7 +489,7 @@ export const ServiceAreas: React.FC<ServiceAreasProps> = ({ onSelectArea }) => {
                             e.stopPropagation();
                             onSelectArea(sub.name);
                           }}
-                          className="text-xs font-semibold text-[#082D43] hover:underline cursor-pointer"
+                          className="text-xs font-semibold text-[#042B60] hover:underline cursor-pointer"
                         >
                           Select
                         </button>
@@ -503,12 +503,12 @@ export const ServiceAreas: React.FC<ServiceAreasProps> = ({ onSelectArea }) => {
             {/* Inclusive Community Guarantee Note */}
             <div className="p-4 rounded-2xl surface-card flex flex-col sm:flex-row sm:items-center justify-between text-xs text-slate-600 gap-2 mt-2">
               <div>
-                <span className="font-semibold text-[#082D43] block">Every Durban Community Included</span>
+                <span className="font-semibold text-[#042B60] block">Every Durban Community Included</span>
                 We service freestanding houses, flats, duplexes, business parks, and shops across eThekwini.
               </div>
               <a
                 href="tel:0319403388"
-                className="font-semibold text-[#082D43] hover:text-[#148CC7] underline shrink-0 whitespace-nowrap"
+                className="font-semibold text-[#042B60] hover:text-[#088DD4] underline shrink-0 whitespace-nowrap"
               >
                 Call (031) 940-3388
               </a>

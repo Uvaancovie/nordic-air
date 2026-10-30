@@ -5,6 +5,7 @@ import { AboutSection } from './components/AboutSection';
 import { NavyFeatures } from './components/NavyFeatures';
 import { ServicesSection } from './components/ServicesSection';
 import { SizingCalculator } from './components/SizingCalculator';
+import { GallerySection } from './components/GallerySection';
 import { CaseStudies } from './components/CaseStudies';
 import { ServiceAreas } from './components/ServiceAreas';
 import { EnergyEstimator } from './components/EnergyEstimator';
@@ -55,9 +56,9 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAFDFF] text-[#082D43] font-sans antialiased selection:bg-[#2ED1DF] selection:text-[#082D43]">
+    <div className="min-h-screen flex flex-col bg-[#F8FBFF] text-[#042B60] font-sans antialiased selection:bg-[#39A9EC] selection:text-[#042B60]">
       {/* Top red brand accent bar */}
-      <div className="h-1.5 w-full bg-[#2ED1DF]" aria-hidden="true" />
+      <div className="h-1.5 w-full bg-[#39A9EC]" aria-hidden="true" />
 
       {/* Top Navigation */}
       <Navbar onOpenBooking={(s) => scrollToBooking(s)} />
@@ -82,7 +83,10 @@ export default function App() {
         {/* 6. Detailed Room Sizing & Unit Recommendation Calculator */}
         <SizingCalculator onAddToBooking={handlePreFillBooking} />
 
-        {/* 7. Real Durban Installation Case Studies & Proof */}
+        {/* 7. Interactive Installation Gallery */}
+        <GallerySection />
+
+        {/* 8. Real Durban Installation Case Studies & Proof */}
         <CaseStudies onRequestSetup={handleSelectCaseStudy} />
 
         {/* 7. Durban Service Area Map & Interactive Suburb Selector */}

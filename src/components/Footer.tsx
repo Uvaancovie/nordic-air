@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#F6FDFE] text-[#082D43] pt-16 pb-12 border-t border-slate-200">
+    <footer className="bg-[#F3F9FF] text-[#042B60] pt-16 pb-12 border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Main Footer Grid */}
@@ -12,8 +12,8 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2 space-y-4">
             <div className="flex flex-col">
               <span className="text-2xl font-extrabold tracking-tight leading-none">
-                <span className="text-[#082D43]">NORDIC</span>
-                <span className="text-[#148CC7] ml-2">AIR</span>
+                <span className="text-[#042B60]">NORDIC</span>
+                <span className="text-[#088DD4] ml-2">AIR</span>
               </span>
               <span className="text-[9px] tracking-[0.28em] text-slate-600 font-semibold uppercase mt-1.5">
                 Cool Comfort. Built Around You.
@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
             </p>
 
             <div className="pt-2 text-xs text-slate-600">
-              <span className="text-[#082D43]">Licensed Technicians</span>
+              <span className="text-[#042B60]">Licensed Technicians</span>
               <span className="mx-2">·</span>
               <span>Fully Insured</span>
             </div>
@@ -38,32 +38,32 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-xs text-slate-600">
               <li>
-                <a href="#services" className="hover:text-[#148CC7] transition-colors">
+                <a href="#services" className="hover:text-[#088DD4] transition-colors">
                   New Installations
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-[#148CC7] transition-colors">
+                <a href="#services" className="hover:text-[#088DD4] transition-colors">
                   Emergency Repairs
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-[#148CC7] transition-colors">
+                <a href="#services" className="hover:text-[#088DD4] transition-colors">
                   Annual Servicing
                 </a>
               </li>
               <li>
-                <a href="#sizing" className="hover:text-[#148CC7] transition-colors">
+                <a href="#sizing" className="hover:text-[#088DD4] transition-colors">
                   AC Sizing Calculator
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-[#148CC7] transition-colors">
+                <a href="#services" className="hover:text-[#088DD4] transition-colors">
                   Offices & Shops
                 </a>
               </li>
               <li>
-                <a href="#guide" className="hover:text-[#148CC7] transition-colors">
+                <a href="#guide" className="hover:text-[#088DD4] transition-colors">
                   Efficiency Guide
                 </a>
               </li>
@@ -77,27 +77,27 @@ export const Footer: React.FC = () => {
             </h4>
             <ul className="space-y-2 text-xs text-slate-600">
               <li>
-                <a href="#areas" className="hover:text-[#148CC7] transition-colors">
+                <a href="#areas" className="hover:text-[#088DD4] transition-colors">
                   Umhlanga & Gateway
                 </a>
               </li>
               <li>
-                <a href="#areas" className="hover:text-[#148CC7] transition-colors">
+                <a href="#areas" className="hover:text-[#088DD4] transition-colors">
                   Durban North & Virginia
                 </a>
               </li>
               <li>
-                <a href="#areas" className="hover:text-[#148CC7] transition-colors">
+                <a href="#areas" className="hover:text-[#088DD4] transition-colors">
                   Ballito & Salt Rock
                 </a>
               </li>
               <li>
-                <a href="#areas" className="hover:text-[#148CC7] transition-colors">
+                <a href="#areas" className="hover:text-[#088DD4] transition-colors">
                   Morningside & Berea
                 </a>
               </li>
               <li>
-                <a href="#areas" className="hover:text-[#148CC7] transition-colors">
+                <a href="#areas" className="hover:text-[#088DD4] transition-colors">
                   Westville & Hillcrest
                 </a>
               </li>
@@ -112,9 +112,9 @@ export const Footer: React.FC = () => {
             <div className="space-y-2 text-xs text-slate-600">
               <a
                 href="tel:0319403388"
-                className="flex items-center gap-2 text-[#082D43] font-mono font-semibold hover:text-[#148CC7] transition-colors"
+                className="flex items-center gap-2 text-[#042B60] font-mono font-semibold hover:text-[#088DD4] transition-colors"
               >
-                <span className="w-2 h-2 rounded-full bg-[#2ED1DF]" />
+                <span className="w-2 h-2 rounded-full bg-[#39A9EC]" />
                 <span>031 940 3388</span>
               </a>
 
@@ -127,7 +127,7 @@ export const Footer: React.FC = () => {
               </div>
 
               <div className="pt-2">
-                <span className="inline-block px-2.5 py-1 rounded bg-[#2ED1DF]/5 border border-slate-200 text-[10px] text-slate-600 font-mono">
+                <span className="inline-block px-2.5 py-1 rounded bg-[#39A9EC]/5 border border-slate-200 text-[10px] text-slate-600 font-mono">
                   24/7 Emergency Repairs
                 </span>
               </div>

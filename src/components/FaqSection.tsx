@@ -42,16 +42,16 @@ export const FaqSection: React.FC = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 bg-[#FAFDFF]">
+    <section id="faq" className="py-20 bg-[#F8FBFF]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#2ED1DF]/5 border border-slate-200 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600 mb-3">
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#39A9EC]/5 border border-slate-200 text-xs font-semibold uppercase tracking-[0.18em] text-slate-600 mb-3">
             <span>FAQ</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#082D43]">
+          <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#042B60]">
             Frequently Asked Questions
           </h2>
 
@@ -72,7 +72,7 @@ export const FaqSection: React.FC = () => {
                   className="w-full flex items-center justify-between text-left group focus:outline-none cursor-pointer"
                   aria-expanded={isOpen}
                 >
-                  <span className="text-base font-semibold text-slate-700 group-hover:text-[#148CC7] transition-colors pr-6">
+                  <span className="text-base font-semibold text-slate-700 group-hover:text-[#088DD4] transition-colors pr-6">
                     {faq.question}
                   </span>
 
@@ -92,11 +92,11 @@ export const FaqSection: React.FC = () => {
         </div>
 
         {/* Contact fallback block */}
-        <div className="mt-10 p-6 rounded-2xl bg-[#2ED1DF]/[0.04] border border-slate-200 text-center text-xs text-slate-600">
+        <div className="mt-10 p-6 rounded-2xl bg-[#39A9EC]/[0.04] border border-slate-200 text-center text-xs text-slate-600">
           <span>Have a question not listed here? </span>
           <a
             href="tel:0319403388"
-            className="font-semibold text-[#082D43] hover:underline ml-1"
+            className="font-semibold text-[#042B60] hover:underline ml-1"
           >
             Call us directly at (031) 940-3388
           </a>
