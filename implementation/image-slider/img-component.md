@@ -33,9 +33,12 @@ interface Slide {
 The current set (from the `nordic-air-logo` storage bucket):
 
 1. `/hero-slides/comfort-solutions.jpeg` — brand poster (converted from PNG for web), `center`
-2. `/hero-slides/hero-1.jpeg` — wall split install, `center 32%`
-3. `/hero-slides/hero-2.jpeg` — office installs, `center 40%`
-4. `/hero-slides/hero-3.jpeg` — Alaska unit install, `center 30%`
+2. `/hero-slides/biz-solutions.jpeg` — commercial solutions poster, `center`
+3. `/hero-slides/office-comfort.jpeg` — cooled commercial office, `center`
+4. `/hero-slides/office-coastal-views.jpeg` — office with coastal city views, `center`
+5. `/hero-slides/hero-1.jpeg` — wall split install, `center 32%`
+6. `/hero-slides/hero-2.jpeg` — office installs, `center 40%`
+7. `/hero-slides/hero-3.jpeg` — Alaska unit install, `center 30%`
 
 ## Adding or swapping images
 

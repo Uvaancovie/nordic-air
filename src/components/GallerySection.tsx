@@ -14,6 +14,21 @@ const IMAGES: GalleryImage[] = [
     position: 'center',
   },
   {
+    src: '/hero-slides/biz-solutions.jpeg',
+    alt: 'Commercial air conditioning poster for manufacturing, warehouses and data centres',
+    position: 'center',
+  },
+  {
+    src: '/hero-slides/office-comfort.jpeg',
+    alt: 'Commercial office cooled by a wall-mounted split air conditioner',
+    position: 'center',
+  },
+  {
+    src: '/hero-slides/office-coastal-views.jpeg',
+    alt: 'Alaska split air conditioner in an office with coastal city views',
+    position: 'center',
+  },
+  {
     src: '/hero-slides/hero-1.jpeg',
     alt: 'Split air conditioner installed above a framed zebra photograph',
     position: 'center 32%',
