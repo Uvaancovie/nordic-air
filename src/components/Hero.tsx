@@ -7,13 +7,6 @@ interface HeroProps {
   onEmergencyClick: () => void;
 }
 
-const PRICE_BY_BTU: Record<string, string> = {
-  '9,000 BTU': 'R6,700',
-  '12,000 BTU': 'R8,900',
-  '18,000 BTU': 'R13,500',
-  '24,000 BTU': 'R18,900',
-};
-
 export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) => {
   const [roomSize, setRoomSize] = useState<'small' | 'medium' | 'large'>('medium');
   const [hasHeavySun, setHasHeavySun] = useState(false);
@@ -47,18 +40,16 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
     }
   }
 
-  const price = PRICE_BY_BTU[btu] ?? 'R6,700';
-
   const handleUseSize = () => {
     const sizeLabel = roomSize === 'small' ? 'Small room' : roomSize === 'medium' ? 'Medium room' : 'Large room';
-    const notes = `Selected with Sizing Tool: ${sizeLabel} (${hasHeavySun ? 'Heavy Sun / Top Floor' : 'Standard Sun'}) - ${btu} Inverter. From ${price} supplied and standard installed.`;
+    const notes = `Selected with Sizing Tool: ${sizeLabel} (${hasHeavySun ? 'Heavy Sun / Top Floor' : 'Standard Sun'}) - ${btu} Inverter.`;
     onOpenBooking('Installation', notes);
   };
 
   const whatsappUrl = generateWhatsAppQuoteUrl({
     serviceType: 'Installation',
     suburb: 'Umhlanga',
-    details: `Quick Sizing Tool: ${roomSize === 'small' ? 'Small room' : roomSize === 'medium' ? 'Medium room' : 'Large room'} (${hasHeavySun ? 'Heavy Sun / Top Floor' : 'Standard Sun'}) - Recommended ${btu} Inverter (from ${price}).`,
+    details: `Quick Sizing Tool: ${roomSize === 'small' ? 'Small room' : roomSize === 'medium' ? 'Medium room' : 'Large room'} (${hasHeavySun ? 'Heavy Sun / Top Floor' : 'Standard Sun'}) - Recommended ${btu} Inverter.`,
     isUrgent: false,
   });
 
@@ -109,7 +100,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
             />
           </div>
 
-          {/* Right Column: Product Card, Price & Primary CTA */}
+          {/* Right Column: Product Card, Sizing & Primary CTA */}
           <div className="lg:col-span-5 w-full">
             <div className="mx-auto max-w-md w-full">
 
@@ -159,16 +150,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
                 </p>
               </div>
 
-              {/* Price block */}
+              {/* Recommended capacity */}
               <div className="mt-7 px-1">
-                <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-slate-600">
-                  From
+                <span className="block text-[11px] font-bold uppercase tracking-[0.24em] text-slate-600">
+                  Recommended size
                 </span>
-                <div className="mt-1 text-5xl sm:text-6xl font-extrabold tracking-[-0.04em] text-[#042B60] leading-none">
-                  {price}
-                </div>
-                <div className="mt-2.5 text-xs font-bold uppercase tracking-wider text-slate-600">
-                  {btu} <span className="text-[#088DD4]">•</span> Supplied &amp; Standard Installed
+                <div className="mt-2 inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-[#39A9EC]/10 border border-[#39A9EC]/25">
+                  <span className="text-lg font-extrabold tracking-tight text-[#042B60]">
+                    {btu}
+                  </span>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600">
+                    Inverter
+                  </span>
                 </div>
               </div>
 
@@ -187,7 +180,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenBooking, onEmergencyClick }) =
               </button>
 
               <p className="mt-4 text-[11px] text-slate-600">
-                Standard installation conditions apply <span className="text-slate-600">•</span> Prices subject to availability
+                Standard installation conditions apply
               </p>
 
               <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 text-[11px]">

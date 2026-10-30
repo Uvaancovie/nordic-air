@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface GalleryImage {
@@ -49,14 +49,16 @@ export const GallerySection: React.FC = () => {
   const prev = useCallback(() => goTo(index - 1), [goTo, index]);
   const next = useCallback(() => goTo(index + 1), [goTo, index]);
 
-  useEffect(() => {
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'ArrowLeft') prev();
-      if (event.key === 'ArrowRight') next();
-    };
-    window.addEventListener('keydown', onKeyDown);
-    return () => window.removeEventListener('keydown', onKeyDown);
-  }, [prev, next]);
+  const onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'ArrowLeft') {
+      event.preventDefault();
+      prev();
+    }
+    if (event.key === 'ArrowRight') {
+      event.preventDefault();
+      next();
+    }
+  };
 
   const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     dragStartX.current = event.clientX;
@@ -135,12 +137,14 @@ export const GallerySection: React.FC = () => {
             role="region"
             aria-roledescription="carousel"
             aria-label="Nordic Air installation gallery"
+            tabIndex={0}
+            onKeyDown={onKeyDown}
             onPointerDown={onPointerDown}
             onPointerMove={onPointerMove}
             onPointerUp={onPointerUp}
             onPointerCancel={onPointerCancel}
             onPointerLeave={onPointerCancel}
-            className="lg:col-span-9 rounded-3xl bg-[#E7F2FC] aspect-[16/10] relative overflow-hidden select-none touch-pan-y border border-slate-200 shadow-[0_30px_80px_-40px_rgba(4,43,96,0.35)]"
+            className="lg:col-span-9 rounded-3xl bg-[#E7F2FC] aspect-[16/10] relative overflow-hidden select-none touch-pan-y border border-slate-200 shadow-[0_30px_80px_-40px_rgba(4,43,96,0.35)] outline-none focus-visible:ring-2 focus-visible:ring-[#088DD4]/50"
           >
             {IMAGES.map((image, imageIndex) => (
               <img
@@ -164,11 +168,8 @@ export const GallerySection: React.FC = () => {
             />
 
             <div className="absolute inset-x-0 bottom-0 z-10 p-3 sm:p-4">
-              <div className="flex items-end justify-between gap-4">
-                <p className="text-[11px] font-semibold text-white/90 line-clamp-1">
-                  {IMAGES[index].alt}
-                </p>
-                <div className="flex items-center gap-1.5 shrink-0">
+              <div className="flex items-end justify-end">
+                <div className="flex items-center gap-1.5 px-2 py-1.5 rounded-full bg-[#042B60]/45 backdrop-blur-sm">
                   {IMAGES.map((image, imageIndex) => (
                     <button
                       key={image.src}
