@@ -5,7 +5,7 @@ import { AboutSection } from './components/AboutSection';
 import { NavyFeatures } from './components/NavyFeatures';
 import { ServicesSection } from './components/ServicesSection';
 import { SizingCalculator } from './components/SizingCalculator';
-import { GallerySection } from './components/GallerySection';
+import { WorkGallery } from './components/WorkGallery';
 import { CaseStudies } from './components/CaseStudies';
 import { ServiceAreas } from './components/ServiceAreas';
 import { EnergyEstimator } from './components/EnergyEstimator';
@@ -47,6 +47,13 @@ export default function App() {
     scrollToBooking(details.service, undefined, details.notes);
   };
 
+  const handleSelectSpace = (spaceName: string, btu: string) => {
+    setSelectedService('Installation');
+    const noteText = `Requesting installation setup for ${spaceName} space (${btu} recommended capacity).`;
+    setQuoteNotes(noteText);
+    scrollToBooking('Installation', undefined, noteText);
+  };
+
   const handleSelectCaseStudy = (title: string, suburbFullName: string) => {
     setSelectedService('Installation');
     setSelectedSuburb(suburbFullName);
@@ -56,11 +63,8 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#F8FBFF] text-[#042B60] font-sans antialiased selection:bg-[#39A9EC] selection:text-[#042B60]">
-      {/* Top red brand accent bar */}
-      <div className="h-1.5 w-full bg-[#39A9EC]" aria-hidden="true" />
-
-      {/* Top Navigation */}
+    <div className="min-h-screen flex flex-col bg-[#F8FBFF] text-[#042B60] font-sans antialiased selection:bg-[#0284C7] selection:text-white">
+      {/* Top Navigation with Aqua Banner */}
       <Navbar onOpenBooking={(s) => scrollToBooking(s)} />
 
       {/* Main Page Flow */}
@@ -71,28 +75,28 @@ export default function App() {
           onEmergencyClick={handleEmergencyClick}
         />
 
-        {/* 3. Durban Climate Engineering & About Section */}
+        {/* 2. Durban Climate Engineering & About Section */}
         <AboutSection onOpenBooking={(s) => scrollToBooking(s)} />
 
-        {/* 4. Dark Navy 4-Feature Banner */}
+        {/* 3. Dark Navy 4-Feature Banner */}
         <NavyFeatures />
 
-        {/* 5. Services & Solutions Grid with Residential / Commercial Toggles */}
+        {/* 4. Services & Solutions Grid with Residential / Commercial Toggles */}
         <ServicesSection onBookService={(s) => scrollToBooking(s)} />
 
-        {/* 6. Detailed Room Sizing & Unit Recommendation Calculator */}
+        {/* 5. Interactive 2-Step Room Sizing & Electricity Savings Calculator */}
         <SizingCalculator onAddToBooking={handlePreFillBooking} />
 
-        {/* 7. Interactive Installation Gallery */}
-        <GallerySection />
+        {/* 6. Dedicated Real Work Gallery with Category Sliders (Commercial, Office, Living Space, Home) */}
+        <WorkGallery onSelectSpace={handleSelectSpace} />
 
-        {/* 8. Real Durban Installation Case Studies & Proof */}
+        {/* 7. Real Durban Installation Case Studies & Proof */}
         <CaseStudies onRequestSetup={handleSelectCaseStudy} />
 
-        {/* 7. Durban Service Area Map & Interactive Suburb Selector */}
+        {/* 8. Durban Service Area Map & Interactive Suburb Selector */}
         <ServiceAreas onSelectArea={handleAreaSelect} />
 
-        {/* 8. Interactive Room Sizing & Inverter Energy Calculator */}
+        {/* 9. Interactive Room Sizing & Inverter Energy Calculator */}
         <EnergyEstimator onPreFillBooking={handlePreFillBooking} />
 
         {/* 9. Authorized Brand Partnerships */}
