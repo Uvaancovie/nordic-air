@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AquaBanner } from './AquaBanner';
 
 interface NavbarProps {
   onOpenBooking: (serviceType?: string) => void;
@@ -9,6 +10,9 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
   return (
     <header className="sticky top-0 z-50 glass-nav transition-all duration-200">
+      {/* Aqua Branding Announcement Banner */}
+      <AquaBanner />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20 gap-2 sm:gap-4 lg:gap-6">
           
@@ -17,12 +21,12 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             <img
               src="/nordic-logo.jpeg"
               alt="Nordic Air logo"
-              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover shadow-sm ring-2 ring-[#39A9EC]/50 group-hover:ring-[#39A9EC] transition-all duration-200"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full object-cover shadow-sm ring-2 ring-[#0284C7]/50 group-hover:ring-[#0284C7] transition-all duration-200"
             />
             <div className="flex flex-col">
               <span className="text-xl sm:text-2xl font-extrabold tracking-tight leading-none">
                 <span className="text-[#042B60]">NORDIC</span>
-                <span className="text-[#088DD4] ml-1.5 sm:ml-2">AIR</span>
+                <span className="text-[#0284C7] ml-1.5 sm:ml-2">AIR</span>
               </span>
               <span className="hidden min-[390px]:block lg:hidden xl:block text-[8px] tracking-[0.18em] text-slate-600 font-semibold uppercase mt-1.5 sm:text-[9px] sm:tracking-[0.28em]">
                 Cool Comfort. Built Around You.
@@ -32,25 +36,25 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
 
           {/* Navigation Links */}
           <nav className="hidden lg:flex items-center gap-4 xl:gap-5 text-[13px] xl:text-sm font-medium text-slate-600">
-            <a href="#services" className="hover:text-[#088DD4] transition-colors whitespace-nowrap">
+            <a href="#services" className="hover:text-[#0284C7] transition-colors whitespace-nowrap">
               Services
             </a>
-            <a href="#sizing" className="hover:text-[#088DD4] transition-colors whitespace-nowrap">
+            <a href="#sizing" className="hover:text-[#0284C7] transition-colors whitespace-nowrap">
               AC Sizing
             </a>
-            <a href="#case-studies" className="hover:text-[#088DD4] transition-colors whitespace-nowrap">
+            <a href="#work-gallery" className="hover:text-[#0284C7] font-semibold text-[#0284C7] transition-colors whitespace-nowrap">
+              Real Work Gallery
+            </a>
+            <a href="#case-studies" className="hover:text-[#0284C7] transition-colors whitespace-nowrap">
               Case Studies
             </a>
-            <a href="#why-nordic" className="hidden xl:block hover:text-[#088DD4] transition-colors whitespace-nowrap">
+            <a href="#why-nordic" className="hidden xl:block hover:text-[#0284C7] transition-colors whitespace-nowrap">
               Why Us
             </a>
-            <a href="#areas" className="hover:text-[#088DD4] transition-colors whitespace-nowrap">
+            <a href="#areas" className="hover:text-[#0284C7] transition-colors whitespace-nowrap">
               Areas We Cover
             </a>
-            <a href="#guide" className="hidden xl:block hover:text-[#088DD4] transition-colors whitespace-nowrap">
-              Efficiency Guide
-            </a>
-            <a href="#faq" className="hover:text-[#088DD4] transition-colors whitespace-nowrap">
+            <a href="#faq" className="hover:text-[#0284C7] transition-colors whitespace-nowrap">
               FAQ
             </a>
           </nav>
@@ -110,14 +114,21 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenBooking }) => {
             <a
               href="#sizing"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[#088DD4]"
+              className="py-1 hover:text-[#0284C7]"
             >
               AC Sizing Calculator
             </a>
             <a
+              href="#work-gallery"
+              onClick={() => setMobileMenuOpen(false)}
+              className="py-1 font-semibold text-[#0284C7] hover:text-[#0369A1]"
+            >
+              Real Work Gallery (16 Photos)
+            </a>
+            <a
               href="#case-studies"
               onClick={() => setMobileMenuOpen(false)}
-              className="py-1 hover:text-[#088DD4]"
+              className="py-1 hover:text-[#0284C7]"
             >
               Case Studies
             </a>

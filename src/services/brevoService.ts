@@ -37,10 +37,9 @@ const BRAND = {
 
 class BrevoService {
   private readonly defaultAdminEmail = 'i.t.safuneralsupplies@gmail.com';
-  private readonly fallbackApiKey = 'bskXHZtW2iVp6EA';
 
   private get apiKey(): string {
-    return import.meta.env.VITE_BREVO_API_KEY || this.fallbackApiKey;
+    return import.meta.env.VITE_BREVO_API_KEY || '';
   }
 
   private get senderEmail(): string {
@@ -144,10 +143,10 @@ class BrevoService {
       return { success: false, error: err };
     }
 
-    if (!key.startsWith('xkeysib-')) {
+    if (!key.startsWith('xkeysib-') && !key.startsWith('xsmtpsib-')) {
       console.warn(
-        `Notice: VITE_BREVO_API_KEY ("${key}") does not start with "xkeysib-". ` +
-        'Brevo v3 REST API requires an API key generated under Brevo Dashboard -> SMTP & API -> API Keys.'
+        `Notice: VITE_BREVO_API_KEY ("${key}") does not start with "xkeysib-" or "xsmtpsib-". ` +
+        'Brevo requires either a v3 REST API key (xkeysib-...) or an SMTP Master Key (xsmtpsib-...).'
       );
     }
 
@@ -492,12 +491,15 @@ class BrevoService {
       // 1. Sync contact into Brevo list #10 (nordic-air) in marketing_automation
       this.syncContactToList(data).catch(() => {});
 
+      const customerEmailClean = data.email.trim();
+      const customerNameClean = data.fullName.trim();
+
       // 2. Dispatch Confirmation to Customer
       const custResult = await this.sendTransactionalEmail({
-        to: [{ email: data.email, name: data.fullName }],
+        to: [{ email: customerEmailClean, name: customerNameClean }],
         subject: customerSubject,
         htmlContent: customerHtml,
-        replyTo: { email: 'service@nordicair.co.za', name: 'Nordic Air Service Desk' },
+        replyTo: { email: this.adminEmail, name: 'Nordic Air Support' },
       });
       customerSent = custResult.success;
 
@@ -506,7 +508,7 @@ class BrevoService {
         to: [{ email: this.adminEmail, name: 'Nordic Air Admin' }],
         subject: adminSubject,
         htmlContent: adminHtml,
-        replyTo: { email: data.email, name: data.fullName },
+        replyTo: { email: customerEmailClean, name: customerNameClean },
       });
       adminSent = adminResult.success;
 

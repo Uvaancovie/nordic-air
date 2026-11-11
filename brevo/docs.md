@@ -1,34 +1,30 @@
-# Brevo (Sendinblue) Email Automation Documentation — Nordic Air
+# Brevo (Sendinblue) Email Automation & SMTP Relay Documentation
 
 ## Overview
 
-Nordic Air uses Brevo's v3 SMTP / Transactional Email REST API to automatically dispatch two customized emails whenever a customer submits the booking or quote request form on the contact section (`src/components/BookingSection.tsx`):
+Nordic Air supports dual-dispatch email automation via Brevo:
+1. **Authenticated SMTP Relay (Port 587)**:
+   - Host: `smtp-relay.brevo.com`
+   - Port: `587`
+   - Login: `a2dec4001@smtp-brevo.com`
+   - Key: `xsmtpsib-YOUR_BREVO_SMTP_KEY` (configured in .env)
+2. **Brevo REST API Fallback**:
+   - `https://api.brevo.com/v3/smtp/email`
+   - `https://api.sendinblue.com/v3/smtp/email`
 
-1. **Customer Confirmation Email**:
-   - Sent to: Customer's email address (`formData.email`).
-   - Style: Aqua Blue Nordic Air branding (`#06264A`, `#073B73`, `#25C5E8`, `#EAF8FC`).
-   - Content:
-     - Header: Nordic Air — Durban Climate Specialists
-     - Personalized greeting: "Thank you {Customer Name}, we have got your confirmation!"
-     - 24-hour reassurance: Explicit assurance that our Durban team will be back in touch within 24 hours.
-     - Urgent flag: If marked urgent, clearly displays the same-day emergency dispatch notice.
-     - Full booking summary: Reference #NA-XXXX, Service requested, Suburb/Location, Contact Phone, Notes & Room details.
-     - Direct emergency contact information (031 940 3388, WhatsApp, service@nordicair.co.za).
-   - Reply-To: `service@nordicair.co.za`.
+Whenever a customer submits the booking form on the contact page (`src/components/BookingSection.tsx`):
 
-2. **Admin Notification Email**:
-   - Sent to: `i.t.safuneralsupplies@gmail.com`.
-   - Subject: `[Nordic Air Booking] ⚡ URGENT - {Customer Name} - {Service} ({Suburb})`
-   - Content:
-     - Priority banner (Urgent Same-Day vs Standard).
-     - Full customer details (Name, clickable Phone `tel:`, clickable Email `mailto:`, Suburb, Service type, Timestamp, Notes).
-     - Quick Action buttons: Call Customer, Reply by Email.
-   - Reply-To: Set directly to the customer's email address so the admin can simply click "Reply" to respond to the customer.
+### 1. Customer Confirmation Email
+- **Recipient**: Customer's submitted email address (`formData.email`).
+- **Brand Identity**: Arctic Aqua (`#06264A`, `#073B73`, `#25C5E8`, `#EAF8FC`).
+- **24-Hour Assurance**: Assures the customer that the Durban team is reviewing their specifications and will respond within **24 hours**.
+- **Urgent Callout**: If marked urgent, clearly displays priority same-day dispatch alert.
+- **Booking Summary**: Reference # (`#NA-XXXX`), service requested, suburb, contact phone, notes.
+- **Direct Contacts**: Emergency line `031 940 3388`, WhatsApp, `service@nordicair.co.za`.
 
-## API Endpoint & Authentication
-
-- **Endpoint**: `POST https://api.brevo.com/v3/smtp/email`
-- **Headers**:
-  - `Accept: application/json`
-  - `Content-Type: application/json`
-  - `api-key: <VITE_BREVO_API_KEY>`
+### 2. Admin Notification Email
+- **Recipient**: `i.t.safuneralsupplies@gmail.com`.
+- **Subject**: `[Nordic Air Booking] ⚡ URGENT - {Customer} - {Service} ({Suburb})`.
+- **Reply-To**: Set directly to the customer's email so clicking Reply in your email client writes directly to the customer.
+- **Details**: Full contact info, suburb, service type, urgency flag, timestamp, and notes.
+- **One-Click Actions**: "Call Customer" (`tel:`), "Reply to Email" (`mailto:`).

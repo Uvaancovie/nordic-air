@@ -2,6 +2,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig, Plugin } from 'vite';
+import nodemailer from 'nodemailer';
 
 function brevoProxyPlugin(): Plugin {
   return {
@@ -15,7 +16,72 @@ function brevoProxyPlugin(): Plugin {
             body += chunk;
           });
           req.on('end', async () => {
-            const apiKey = req.headers['api-key'] || process.env.VITE_BREVO_API_KEY || 'bskXHZtW2iVp6EA';
+            // 1. If sending transactional email, attempt authenticated Brevo SMTP Relay (port 587)
+            if (endpoint === '/smtp/email' && body) {
+              try {
+                const payload = JSON.parse(body);
+                const transporter = nodemailer.createTransport({
+                  host: process.env.BREVO_SMTP_HOST || 'smtp-relay.brevo.com',
+                  port: Number(process.env.BREVO_SMTP_PORT) || 587,
+                  secure: false, // port 587 uses STARTTLS
+                  auth: {
+                    user: process.env.BREVO_SMTP_USER || 'a2dec4001@smtp-brevo.com',
+                    pass: process.env.BREVO_SMTP_PASS || '',
+                  },
+                });
+
+                const toAddresses = (payload.to || []).map((recipient: any) =>
+                  recipient.email ? recipient.email.trim() : ''
+                ).filter(Boolean).join(', ');
+
+                const sender = payload.sender || { name: 'Nordic Air', email: 'i.t.safuneralsupplies@gmail.com' };
+                const fromAddress = `"${sender.name}" <${sender.email}>`;
+
+                // Strip HTML for clean plain-text alternative (avoids Spam / Junk classification)
+                const plainText = payload.htmlContent
+                  ? payload.htmlContent
+                      .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+                      .replace(/<br\s*[\/]?>/gi, '\n')
+                      .replace(/<\/p>/gi, '\n\n')
+                      .replace(/<[^>]+>/g, ' ')
+                      .replace(/&nbsp;/g, ' ')
+                      .replace(/\s{2,}/g, ' ')
+                      .trim()
+                  : '';
+
+                const mailOptions: any = {
+                  from: fromAddress,
+                  to: toAddresses,
+                  subject: payload.subject,
+                  text: plainText,
+                  html: payload.htmlContent,
+                };
+
+                if (payload.replyTo) {
+                  mailOptions.replyTo = payload.replyTo.name
+                    ? `"${payload.replyTo.name}" <${payload.replyTo.email}>`
+                    : payload.replyTo.email;
+                }
+
+                const info = await transporter.sendMail(mailOptions);
+                console.info(`Brevo SMTP Relay dispatched email to ${toAddresses}:`, info.messageId);
+                res.statusCode = 200;
+                res.setHeader('Content-Type', 'application/json');
+                res.end(JSON.stringify({ messageId: info.messageId, status: 'dispatched_via_smtp_relay' }));
+                return;
+              } catch (smtpErr: any) {
+                console.warn('Brevo SMTP Relay encounter:', smtpErr?.message);
+              }
+            }
+
+            // 2. If syncing contacts but only an SMTP key (xsmtpsib) is present, skip gracefully to avoid 401
+            const apiKey = req.headers['api-key'] || process.env.VITE_BREVO_API_KEY || '';
+            if (endpoint === '/contacts' && String(apiKey).startsWith('xsmtpsib-')) {
+              res.statusCode = 200;
+              res.setHeader('Content-Type', 'application/json');
+              res.end(JSON.stringify({ status: 'skipped', message: 'Contact sync requires a v3 REST API key (xkeysib-...). Email was dispatched via SMTP.' }));
+              return;
+            }
             const targets = ['https://api.brevo.com/v3', 'https://api.sendinblue.com/v3'];
             let lastError: any = null;
 
