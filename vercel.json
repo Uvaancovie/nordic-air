@@ -1,0 +1,19 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": null,
+  "rewrites": [
+    {
+      "source": "/api/brevo/smtp/email",
+      "destination": "/api/brevo/smtp/email"
+    },
+    {
+      "source": "/api/brevo/contacts",
+      "destination": "/api/brevo/contacts"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
