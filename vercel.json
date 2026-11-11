@@ -4,11 +4,9 @@
   "framework": null,
   "functions": {
     "api/brevo/smtp/email.ts": {
-      "runtime": "nodejs20.x",
       "maxDuration": 15
     },
     "api/brevo/contacts.ts": {
-      "runtime": "nodejs20.x",
       "maxDuration": 10
     }
   },

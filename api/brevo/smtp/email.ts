@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import nodemailer from 'nodemailer';
+import nodemailer, { type SendMailOptions } from 'nodemailer';
 
 /**
  * Vercel Serverless Function — POST /api/brevo/smtp/email
@@ -41,11 +41,19 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(400).json({ error: 'Missing required fields: to, subject, htmlContent' });
   }
 
-  const smtpPass = process.env.BREVO_SMTP_PASS || '';
-  if (!smtpPass) {
-    console.error('[Brevo SMTP] BREVO_SMTP_PASS env var is not set in Vercel.');
+  const smtpUser = process.env.BREVO_SMTP_USER || 'a2dec4001@smtp-brevo.com';
+  const headerKey = typeof req.headers['api-key'] === 'string' ? req.headers['api-key'] : '';
+  const smtpPass =
+    process.env.BREVO_SMTP_PASS ||
+    process.env.BREVO_SMTP_KEY ||
+    (process.env.VITE_BREVO_API_KEY?.startsWith('xsmtpsib-') ? process.env.VITE_BREVO_API_KEY : '') ||
+    (headerKey.startsWith('xsmtpsib-') ? headerKey : '');
+
+  if (!smtpUser || !smtpPass) {
+    console.error('[Brevo SMTP] Missing SMTP credentials in Vercel environment.');
     return res.status(500).json({
-      error: 'SMTP credentials not configured. Please add BREVO_SMTP_PASS to Vercel Environment Variables.',
+      error:
+        'SMTP credentials not configured. Add BREVO_SMTP_USER and BREVO_SMTP_PASS (xsmtpsib-...) to Vercel Environment Variables.',
     });
   }
 
@@ -55,7 +63,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       port: Number(process.env.BREVO_SMTP_PORT) || 587,
       secure: false, // port 587 uses STARTTLS
       auth: {
-        user: process.env.BREVO_SMTP_USER || 'a2dec4001@smtp-brevo.com',
+        user: smtpUser,
         pass: smtpPass,
       },
       connectionTimeout: 10000,
@@ -83,7 +91,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       .replace(/\s{2,}/g, ' ')
       .trim();
 
-    const mailOptions: nodemailer.SendMailOptions = {
+    const mailOptions: SendMailOptions = {
       from: `"${sender.name}" <${sender.email}>`,
       to: toAddresses,
       subject: payload.subject,
