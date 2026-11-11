@@ -1,46 +1,52 @@
-import type { IncomingMessage, ServerResponse } from 'node:http';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import nodemailer from 'nodemailer';
 
-// Vercel Serverless Function — POST /api/brevo/smtp/email
-// Uses Brevo SMTP Relay (port 587) to dispatch transactional emails.
-// Env vars (set in Vercel Dashboard → Settings → Environment Variables):
-//   BREVO_SMTP_HOST, BREVO_SMTP_PORT, BREVO_SMTP_USER, BREVO_SMTP_PASS
-
-export default async function handler(req: IncomingMessage, res: ServerResponse) {
-  // CORS headers (allow same-origin Vercel deploys and localhost dev)
+/**
+ * Vercel Serverless Function — POST /api/brevo/smtp/email
+ *
+ * Dispatches transactional emails via Brevo SMTP Relay (port 587).
+ * Vercel auto-parses the JSON request body, so req.body is ready to use.
+ *
+ * Required Vercel Environment Variables:
+ *   BREVO_SMTP_HOST  = smtp-relay.brevo.com
+ *   BREVO_SMTP_PORT  = 587
+ *   BREVO_SMTP_USER  = a2dec4001@smtp-brevo.com
+ *   BREVO_SMTP_PASS  = xsmtpsib-...
+ */
+export default async function handler(req: VercelRequest, res: VercelResponse) {
+  // CORS — allow calls from same Vercel domain and localhost dev
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, api-key');
 
   if (req.method === 'OPTIONS') {
-    res.statusCode = 204;
-    res.end();
-    return;
+    return res.status(204).end();
   }
 
   if (req.method !== 'POST') {
-    res.statusCode = 405;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ error: 'Method not allowed' }));
-    return;
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // Read request body
-  let rawBody = '';
-  await new Promise<void>((resolve, reject) => {
-    req.on('data', (chunk: Buffer) => { rawBody += chunk.toString(); });
-    req.on('end', resolve);
-    req.on('error', reject);
-  });
+  // Vercel automatically parses JSON bodies — req.body is the parsed object
+  const payload = req.body as {
+    to?: { email: string; name?: string }[];
+    sender?: { name: string; email: string };
+    subject?: string;
+    htmlContent?: string;
+    replyTo?: { email: string; name?: string };
+    attachment?: { name: string; content: string }[];
+  };
 
-  let payload: any;
-  try {
-    payload = JSON.parse(rawBody);
-  } catch {
-    res.statusCode = 400;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ error: 'Invalid JSON body' }));
-    return;
+  if (!payload || !payload.to || !payload.subject || !payload.htmlContent) {
+    return res.status(400).json({ error: 'Missing required fields: to, subject, htmlContent' });
+  }
+
+  const smtpPass = process.env.BREVO_SMTP_PASS || '';
+  if (!smtpPass) {
+    console.error('[Brevo SMTP] BREVO_SMTP_PASS env var is not set in Vercel.');
+    return res.status(500).json({
+      error: 'SMTP credentials not configured. Please add BREVO_SMTP_PASS to Vercel Environment Variables.',
+    });
   }
 
   try {
@@ -50,25 +56,27 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
       secure: false, // port 587 uses STARTTLS
       auth: {
         user: process.env.BREVO_SMTP_USER || 'a2dec4001@smtp-brevo.com',
-        pass: process.env.BREVO_SMTP_PASS || '',
+        pass: smtpPass,
       },
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
     });
 
-    // Build recipients string
+    // Build recipient string — supports both "Name <email>" and plain "email"
     const toAddresses = (payload.to || [])
-      .map((r: any) => (r.name ? `"${r.name}" <${r.email}>` : r.email))
+      .map((r) => (r.name ? `"${r.name}" <${r.email}>` : r.email))
       .filter(Boolean)
       .join(', ');
 
-    const sender = payload.sender || {
+    const sender = payload.sender ?? {
       name: 'Nordic Air Durban',
       email: 'i.t.safuneralsupplies@gmail.com',
     };
 
-    // Strip HTML to generate clean plain-text alternative (better spam score)
+    // Strip HTML → plain text alternative (reduces spam score)
     const plainText = (payload.htmlContent || '')
       .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
-      .replace(/<br\s*[\/]?>/gi, '\n')
+      .replace(/<br\s*\/?>/gi, '\n')
       .replace(/<\/p>/gi, '\n\n')
       .replace(/<[^>]+>/g, ' ')
       .replace(/&nbsp;/g, ' ')
@@ -90,23 +98,20 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     }
 
     if (payload.attachment && payload.attachment.length > 0) {
-      mailOptions.attachments = payload.attachment.map((a: any) => ({
+      mailOptions.attachments = payload.attachment.map((a) => ({
         filename: a.name,
         content: Buffer.from(a.content, 'base64'),
-        encoding: 'base64',
+        encoding: 'base64' as const,
       }));
     }
 
     const info = await transporter.sendMail(mailOptions);
     console.info('[Brevo SMTP] Email dispatched:', info.messageId, '→', toAddresses);
 
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ messageId: info.messageId, status: 'dispatched' }));
-  } catch (err: any) {
-    console.error('[Brevo SMTP] Send error:', err?.message);
-    res.statusCode = 500;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ error: err?.message || 'SMTP dispatch failed' }));
+    return res.status(200).json({ messageId: info.messageId, status: 'dispatched' });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error('[Brevo SMTP] Send error:', message);
+    return res.status(500).json({ error: message });
   }
 }

@@ -1,59 +1,34 @@
-import type { IncomingMessage, ServerResponse } from 'node:http';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
-// Vercel Serverless Function — POST /api/brevo/contacts
-// Syncs a contact to Brevo List #10 (nordic-air) using the REST API v3.
-// Requires VITE_BREVO_API_KEY (xkeysib-...) in Vercel env vars.
-// If only BREVO_SMTP_PASS (xsmtpsib-...) is present, skips gracefully.
-
-export default async function handler(req: IncomingMessage, res: ServerResponse) {
+/**
+ * Vercel Serverless Function — POST /api/brevo/contacts
+ *
+ * Syncs a contact to Brevo List #10 (nordic-air).
+ * Requires VITE_BREVO_API_KEY (xkeysib-...) in Vercel env vars.
+ * If only an SMTP key (xsmtpsib-...) is present, skips gracefully —
+ * email dispatch via SMTP still works fine without contact sync.
+ */
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, api-key');
 
-  if (req.method === 'OPTIONS') {
-    res.statusCode = 204;
-    res.end();
-    return;
-  }
-
-  if (req.method !== 'POST') {
-    res.statusCode = 405;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ error: 'Method not allowed' }));
-    return;
-  }
+  if (req.method === 'OPTIONS') return res.status(204).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const apiKey = process.env.VITE_BREVO_API_KEY || '';
 
-  // If no v3 REST key, skip gracefully (SMTP key can't do contacts REST API)
+  // Skip gracefully — SMTP key cannot be used for REST API contacts endpoint
   if (!apiKey || apiKey.startsWith('xsmtpsib-')) {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(
-      JSON.stringify({
-        status: 'skipped',
-        message: 'Contact sync requires a v3 REST API key (xkeysib-...). Email was dispatched via SMTP.',
-      })
-    );
-    return;
+    return res.status(200).json({
+      status: 'skipped',
+      message:
+        'Contact sync skipped: requires a v3 REST API key (xkeysib-...). Email dispatched via SMTP.',
+    });
   }
 
-  let rawBody = '';
-  await new Promise<void>((resolve, reject) => {
-    req.on('data', (chunk: Buffer) => { rawBody += chunk.toString(); });
-    req.on('end', resolve);
-    req.on('error', reject);
-  });
-
-  let payload: any;
-  try {
-    payload = JSON.parse(rawBody);
-  } catch {
-    res.statusCode = 400;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ error: 'Invalid JSON body' }));
-    return;
-  }
+  const payload = req.body;
+  if (!payload) return res.status(400).json({ error: 'Missing request body' });
 
   try {
     const response = await fetch('https://api.brevo.com/v3/contacts', {
@@ -67,13 +42,10 @@ export default async function handler(req: IncomingMessage, res: ServerResponse)
     });
 
     const data = await response.text();
-    res.statusCode = response.status;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(data);
-  } catch (err: any) {
-    console.error('[Brevo Contacts] Error:', err?.message);
-    res.statusCode = 500;
-    res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ error: err?.message || 'Contacts sync failed' }));
+    return res.status(response.status).send(data);
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error('[Brevo Contacts] Error:', message);
+    return res.status(500).json({ error: message });
   }
 }
