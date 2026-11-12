@@ -183,7 +183,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                   </div>
                   <div>
                     <span className="text-slate-600 block text-[10px] uppercase">Address:</span>
-                    <span>Umhlanga Ridge, Greater Durban</span>
+                    <span>158 Aberdare Drive #160 Durban 4068</span>
                   </div>
                   <div>
                     <span className="text-slate-600 block text-[10px] uppercase">Email:</span>
