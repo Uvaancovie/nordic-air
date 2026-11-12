@@ -187,7 +187,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                   </div>
                   <div>
                     <span className="text-slate-600 block text-[10px] uppercase">Email:</span>
-                    <span>service@nordicair.co.za</span>
+                    <span></span>
                   </div>
                 </div>
               </div>
